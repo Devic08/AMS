@@ -1,0 +1,429 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 28%),
+        radial-gradient(circle at left bottom, rgba(37, 99, 235, 0.12), transparent 24%),
+        #0f172a;
+}
+
+.reportPageMain {
+    min-height: 100vh;
+    padding: 28px;
+}
+
+.reportPageShell {
+    width: 100%;
+}
+
+.reportPageHeader {
+    margin-bottom: 18px;
+}
+
+.reportShell {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(30, 41, 59, 0.96));
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.34);
+    padding: 24px;
+}
+
+.reportBackLink,
+.reportActionButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+}
+
+.reportBackLink {
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.18);
+    color: #dbeafe;
+    border: 1px solid rgba(96, 165, 250, 0.28);
+}
+
+.reportBackLink:hover,
+.reportActionButton:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.reportBanner {
+    display: none;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(14, 165, 233, 0.14);
+    border: 1px solid rgba(56, 189, 248, 0.24);
+    color: #dbeafe;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.reportBanner.visible {
+    display: block;
+}
+
+.reportFilterPanel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(170px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 18px;
+    border: 1px solid rgba(96, 165, 250, 0.16);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.12), transparent 36%),
+        rgba(15, 23, 42, 0.62);
+}
+
+.reportField {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.reportField span {
+    color: #93c5fd;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.reportField select,
+.reportField input {
+    min-height: 46px;
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 14px;
+    padding: 10px 14px;
+    background: rgba(15, 23, 42, 0.88);
+    color: #f8fafc;
+    font: inherit;
+    outline: none;
+}
+
+.reportField select:focus,
+.reportField input:focus {
+    border-color: rgba(96, 165, 250, 0.62);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.16);
+}
+
+.reportSearchField {
+    grid-column: span 2;
+}
+
+.reportFilterActions {
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+    gap: 10px;
+    grid-column: span 2;
+}
+
+.reportMetaCard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.reportMetaLabel {
+    margin: 0 0 6px;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.reportMetaCard strong {
+    color: #f8fafc;
+    font-size: 15px;
+}
+
+.reportSummaryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.reportSummaryCard {
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.88), rgba(15, 23, 42, 0.82));
+    border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.reportSummaryCard p {
+    margin: 0 0 6px;
+    color: #93c5fd;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 800;
+}
+
+.reportSummaryCard h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 30px;
+    line-height: 1.05;
+}
+
+.reportSummaryCard small {
+    display: block;
+    margin-top: 10px;
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.reportActionsBar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.reportActionButton {
+    min-width: 118px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+}
+
+.reportActionButton i {
+    font-size: 18px;
+}
+
+.reportActionButton:disabled {
+    cursor: wait;
+    opacity: 0.72;
+    transform: none;
+}
+
+.reportActionButton.is-loading i {
+    animation: reportSpin 0.8s linear infinite;
+}
+
+.reportActionButton.pdf {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+.reportActionButton.excel {
+    background: linear-gradient(135deg, #10b981, #22c55e);
+}
+
+.reportActionButton.print {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+}
+
+.reportActionButton.generate {
+    background: linear-gradient(135deg, #06b6d4, #2563eb);
+}
+
+.reportActionButton.reset {
+    background: linear-gradient(135deg, #64748b, #334155);
+}
+
+.reportTableWrap {
+    overflow-x: auto;
+    overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.reportTable {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    background: rgba(15, 23, 42, 0.34);
+}
+
+.reportTable th,
+.reportTable td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+}
+
+.reportTable thead th {
+    background: #303234;
+    color: #f8fafc;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.reportTable tbody tr:nth-child(odd) {
+    background: rgba(15, 23, 42, 0.88);
+}
+
+.reportTable tbody tr:nth-child(even) {
+    background: rgba(30, 41, 59, 0.86);
+}
+
+.reportTable td {
+    color: #dbeafe;
+    font-size: 13px;
+}
+
+.reportTypeTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #5bc0ff;
+}
+
+.reportTypeDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.reportEmptyState {
+    margin-top: 20px;
+    padding: 42px 24px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.76);
+    border: 1px dashed rgba(148, 163, 184, 0.2);
+    text-align: center;
+}
+
+.reportEmptyState i {
+    font-size: 42px;
+    color: #60a5fa;
+}
+
+.reportEmptyState h3 {
+    margin: 14px 0 8px;
+    color: #f8fafc;
+    font-size: 24px;
+}
+
+.reportEmptyState p {
+    margin: 0 auto 18px;
+    max-width: 620px;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.reportBackLink.empty {
+    margin-top: 4px;
+}
+
+.category-desktop {
+    background: #4ade80;
+}
+
+.category-display {
+    background: #f472b6;
+}
+
+.category-phone {
+    background: #f97316;
+}
+
+.category-tablet {
+    background: #a21caf;
+}
+
+.category-voip {
+    background: #f43f5e;
+}
+
+.category-laptop {
+    background: #65a30d;
+}
+
+@keyframes reportSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media print {
+    .reportBackLink,
+    .reportActionsBar {
+        display: none !important;
+    }
+
+    .reportPageMain,
+    .reportPageShell,
+    .reportShell {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: none;
+        box-shadow: none;
+        background: #ffffff;
+        color: #0f172a;
+        border: 0;
+    }
+
+    .reportTable thead th {
+        background: #e5e7eb !important;
+        color: #111827 !important;
+    }
+
+    .reportTable tbody tr:nth-child(odd),
+    .reportTable tbody tr:nth-child(even),
+    .reportMetaCard,
+    .reportSummaryCard {
+        background: #ffffff !important;
+        color: #111827 !important;
+        border-color: #d1d5db !important;
+    }
+
+    .reportTable td,
+    .reportMetaCard strong,
+    .reportSummaryCard h3,
+    .reportSummaryCard small,
+    .reportSummaryCard p,
+    .reportMetaLabel {
+        color: #111827 !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .reportPageMain {
+        padding: 18px;
+    }
+
+    .reportMetaCard,
+    .reportSummaryGrid,
+    .reportFilterPanel {
+        grid-template-columns: 1fr;
+    }
+
+    .reportSearchField,
+    .reportFilterActions {
+        grid-column: auto;
+    }
+
+    .reportActionsBar {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}

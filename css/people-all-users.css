@@ -1,0 +1,214 @@
+.peopleAllUsersTableWrap {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-gutter: stable both-edges;
+}
+
+.peopleAllUsersTable {
+    width: max-content;
+    min-width: max(100%, 1580px);
+    table-layout: auto;
+}
+
+.peopleAllUsersTable th,
+.peopleAllUsersTable td {
+    padding: 14px 10px;
+    font-size: 13px;
+    vertical-align: middle;
+    min-width: 0;
+    max-width: none;
+}
+
+.peopleMetricCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #93c5fd;
+}
+
+.peopleMetricCell i {
+    font-size: 16px;
+}
+
+.peopleMetricCell strong {
+    color: #f8fafc;
+    font-size: 12px;
+}
+
+.peopleStatus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 78px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.peopleStatus.is-active {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+}
+
+.peopleStatus.is-inactive {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+}
+
+.peopleAllUsersTable .inventoryActionSet {
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.peopleAllUsersTable .inventoryActionBtn.info {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.peopleAllUsersTable .manageUsersRoleBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 88px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(99, 102, 241, 0.16);
+    color: #c7d2fe;
+}
+
+.peopleAllUsersTable th:nth-child(1),
+.peopleAllUsersTable td:nth-child(1) {
+    width: 2.5%;
+    text-align: center;
+}
+
+.peopleAllUsersTable th:nth-child(2),
+.peopleAllUsersTable td:nth-child(2) {
+    width: 7%;
+}
+
+.peopleAllUsersTable th:nth-child(3),
+.peopleAllUsersTable td:nth-child(3) {
+    width: 8%;
+}
+
+.peopleAllUsersTable th:nth-child(4),
+.peopleAllUsersTable td:nth-child(4) {
+    width: 5.5%;
+}
+
+.peopleAllUsersTable th:nth-child(5),
+.peopleAllUsersTable td:nth-child(5) {
+    width: 7.5%;
+}
+
+.peopleAllUsersTable th:nth-child(6),
+.peopleAllUsersTable td:nth-child(6),
+.peopleAllUsersTable th:nth-child(7),
+.peopleAllUsersTable td:nth-child(7),
+.peopleAllUsersTable th:nth-child(8),
+.peopleAllUsersTable td:nth-child(8) {
+    width: 7%;
+}
+
+.peopleAllUsersTable th:nth-child(6),
+.peopleAllUsersTable td:nth-child(6) {
+    width: 10%;
+}
+
+.peopleAllUsersTable th:nth-child(9),
+.peopleAllUsersTable td:nth-child(9) {
+    width: 8%;
+    text-align: center;
+}
+
+.peopleAllUsersTable th:nth-child(10),
+.peopleAllUsersTable td:nth-child(10) {
+    width: 7%;
+}
+
+.peopleAllUsersTable th:nth-child(11),
+.peopleAllUsersTable td:nth-child(11),
+.peopleAllUsersTable th:nth-child(12),
+.peopleAllUsersTable td:nth-child(12),
+.peopleAllUsersTable th:nth-child(13),
+.peopleAllUsersTable td:nth-child(13),
+.peopleAllUsersTable th:nth-child(14),
+.peopleAllUsersTable td:nth-child(14) {
+    width: 4%;
+    text-align: center;
+}
+
+.peopleAllUsersTable th:nth-child(15),
+.peopleAllUsersTable td:nth-child(15) {
+    width: 7%;
+    text-align: center;
+}
+
+.peopleAllUsersTable th:nth-child(16),
+.peopleAllUsersTable td:nth-child(16) {
+    width: 9%;
+    text-align: center;
+}
+
+.peopleAllUsersTable th:nth-child(2),
+.peopleAllUsersTable td:nth-child(2),
+.peopleAllUsersTable th:nth-child(3),
+.peopleAllUsersTable td:nth-child(3),
+.peopleAllUsersTable th:nth-child(4),
+.peopleAllUsersTable td:nth-child(4),
+.peopleAllUsersTable th:nth-child(5),
+.peopleAllUsersTable td:nth-child(5),
+.peopleAllUsersTable th:nth-child(6),
+.peopleAllUsersTable td:nth-child(6),
+.peopleAllUsersTable th:nth-child(7),
+.peopleAllUsersTable td:nth-child(7),
+.peopleAllUsersTable th:nth-child(8),
+.peopleAllUsersTable td:nth-child(8),
+.peopleAllUsersTable th:nth-child(9),
+.peopleAllUsersTable td:nth-child(9),
+.peopleAllUsersTable th:nth-child(10),
+.peopleAllUsersTable td:nth-child(10) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.peopleAllUsersTable th:nth-child(16),
+.peopleAllUsersTable td:nth-child(16) {
+    overflow: visible;
+}
+
+@media (max-width: 1100px) {
+    .peopleAllUsersTable {
+        min-width: max(100%, 1220px);
+    }
+
+    .peopleAllUsersTable th,
+    .peopleAllUsersTable td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 820px) {
+    .peopleAllUsersTable {
+        min-width: max(100%, 980px);
+    }
+
+    .peopleAllUsersTable th,
+    .peopleAllUsersTable td {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        word-break: break-word;
+    }
+
+    .peopleAllUsersTable .inventoryActionSet {
+        flex-wrap: wrap;
+    }
+}

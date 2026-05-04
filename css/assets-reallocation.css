@@ -1,0 +1,234 @@
+.reallocationPage {
+    max-width: none;
+}
+
+.reallocationTableWrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-gutter: stable both-edges;
+}
+
+.reallocationInventoryTable {
+    width: max-content;
+    min-width: max(100%, 1560px);
+}
+
+.reallocationInventoryTable th:nth-child(1),
+.reallocationInventoryTable td:nth-child(1) {
+    width: 4%;
+    min-width: 48px;
+}
+
+.reallocationInventoryTable th:nth-child(2),
+.reallocationInventoryTable td:nth-child(2) {
+    width: 9%;
+    min-width: 110px;
+}
+
+.reallocationInventoryTable th:nth-child(3),
+.reallocationInventoryTable td:nth-child(3) {
+    width: 12%;
+    min-width: 160px;
+}
+
+.reallocationInventoryTable th:nth-child(4),
+.reallocationInventoryTable td:nth-child(4),
+.reallocationInventoryTable th:nth-child(5),
+.reallocationInventoryTable td:nth-child(5),
+.reallocationInventoryTable th:nth-child(6),
+.reallocationInventoryTable td:nth-child(6),
+.reallocationInventoryTable th:nth-child(7),
+.reallocationInventoryTable td:nth-child(7),
+.reallocationInventoryTable th:nth-child(8),
+.reallocationInventoryTable td:nth-child(8),
+.reallocationInventoryTable th:nth-child(9),
+.reallocationInventoryTable td:nth-child(9),
+.reallocationInventoryTable th:nth-child(10),
+.reallocationInventoryTable td:nth-child(10),
+.reallocationInventoryTable th:nth-child(11),
+.reallocationInventoryTable td:nth-child(11) {
+    width: 10%;
+    min-width: 124px;
+}
+
+.reallocationInventoryTable th:nth-child(4),
+.reallocationInventoryTable td:nth-child(4) {
+    width: 15%;
+    min-width: 210px;
+}
+
+.reallocationInventoryTable th:nth-child(7),
+.reallocationInventoryTable td:nth-child(7),
+.reallocationInventoryTable th:nth-child(8),
+.reallocationInventoryTable td:nth-child(8) {
+    min-width: 140px;
+}
+
+.reallocationInventoryTable th:nth-child(12),
+.reallocationInventoryTable td:nth-child(12) {
+    width: 8%;
+    min-width: 120px;
+}
+
+.reallocationInventoryTable th:nth-child(3),
+.reallocationInventoryTable td:nth-child(3),
+.reallocationInventoryTable th:nth-child(4),
+.reallocationInventoryTable td:nth-child(4),
+.reallocationInventoryTable th:nth-child(7),
+.reallocationInventoryTable td:nth-child(7),
+.reallocationInventoryTable th:nth-child(9),
+.reallocationInventoryTable td:nth-child(9) {
+    white-space: normal;
+    word-break: break-word;
+}
+
+.reallocationPrimaryButton,
+.reallocationActionButton {
+    border: 0;
+    cursor: pointer;
+}
+
+.reallocationPrimaryButton {
+    white-space: nowrap;
+}
+
+.reallocationPrimaryButton:disabled,
+.inventoryToolbarBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.reallocationActionButton.return {
+    color: #fde68a;
+}
+
+.reallocationEmptyState {
+    padding: 28px 20px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.reallocationModal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(2, 6, 23, 0.68);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+}
+
+.reallocationModal.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.reallocationModalCard {
+    position: relative;
+    width: min(720px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    padding: 28px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.reallocationModalClose {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: rgba(15, 23, 42, 0.76);
+    color: #e2e8f0;
+    cursor: pointer;
+}
+
+.reallocationModalHeader {
+    margin-bottom: 18px;
+}
+
+.reallocationModalEyebrow {
+    margin: 0 0 8px;
+    color: #7dd3fc;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.reallocationModalHeader h3 {
+    margin: 0 0 8px;
+    color: #f8fafc;
+    font-size: 28px;
+}
+
+.reallocationModalHeader p {
+    margin: 0;
+    color: #cbd5e1;
+}
+
+.reallocationSelectionPills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.reallocationSelectionPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    color: #e0f2fe;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.reallocationFormGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.formFieldFull {
+    grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+    .reallocationInventoryTable {
+        min-width: max(100%, 1080px);
+    }
+
+    .reallocationInventoryTable th,
+    .reallocationInventoryTable td {
+        font-size: 12px;
+        padding: 12px 10px;
+    }
+
+    .reallocationPrimaryButton,
+    .reallocationActionButton {
+        white-space: normal;
+    }
+
+    .reallocationFormGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formFieldFull {
+        grid-column: auto;
+    }
+}

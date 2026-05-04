@@ -1,0 +1,145 @@
+.manageUserDetailShell {
+    padding: 24px;
+}
+
+.manageUserDetailActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.manageUserBackButton {
+    text-decoration: none;
+}
+
+.manageUserDetailGrid {
+    display: grid;
+    gap: 20px;
+}
+
+.manageUserDetailCard {
+    background: rgba(15, 23, 42, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.manageUserDetailCard h3 {
+    margin: 0 0 18px;
+    color: #f8fafc;
+    font-size: 16px;
+}
+
+.manageUserDetailList {
+    display: grid;
+    gap: 18px;
+}
+
+.manageUserDetailList.is-user-section {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 20px;
+}
+
+.manageUserDetailList.is-permission-section {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 20px;
+}
+
+.manageUserDetailItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(30, 41, 59, 0.42);
+}
+
+.manageUserDetailItem label {
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.manageUserDetailItem span {
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.manageUserPermissionValue {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    border-radius: 12px;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.manageUserAssignmentList {
+    display: grid;
+    gap: 10px;
+}
+
+.manageUserAssignmentChip {
+    display: grid;
+    gap: 6px;
+    min-height: 40px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(30, 41, 59, 0.56);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.manageUserAssignmentTitle {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.manageUserAssignmentMeta {
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.manageUserAssignmentDetail {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.manageUserAssignmentEmpty {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.42);
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+    .manageUserDetailList.is-user-section,
+    .manageUserDetailList.is-permission-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .manageUserDetailList.is-user-section,
+    .manageUserDetailList.is-permission-section {
+        grid-template-columns: 1fr;
+    }
+}

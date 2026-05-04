@@ -1,0 +1,88 @@
+.navGroup {
+    display: grid;
+    gap: 0;
+}
+
+.submenuToggle {
+    justify-content: flex-start;
+}
+
+.submenuArrow {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: rgba(226, 232, 240, 0.86);
+    transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.submenuArrow i {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.navGroup.open .submenuArrow {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    display: grid;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding-left: 56px;
+    transition: max-height 0.25s ease, opacity 0.2s ease, padding-top 0.2s ease, padding-bottom 0.2s ease;
+}
+
+.navGroup.open .submenu {
+    max-height: 420px;
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 6px;
+}
+
+.submenuItem {
+    display: block;
+    border: 0;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(226, 232, 240, 0.82);
+    font: inherit;
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.submenuItem:hover,
+.submenuItem.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
+.sidebar.collapsed .submenu,
+.sidebar.collapsed .submenuArrow {
+    display: none;
+}
+
+.submenuDemoShell {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px;
+    background: #0f172a;
+    font-family: "Manrope", sans-serif;
+}
+
+.submenuDemoGroup {
+    width: 320px;
+    padding: 18px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 28%),
+        linear-gradient(180deg, #132347 0%, #182f61 52%, #0f1b38 100%);
+}

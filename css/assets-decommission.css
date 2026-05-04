@@ -1,0 +1,68 @@
+.decommissionTableWrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-gutter: stable both-edges;
+}
+
+.decommissionInventoryTable {
+    width: max-content;
+    min-width: max(100%, 1420px);
+}
+
+.decommissionInventoryTable th:nth-child(1),
+.decommissionInventoryTable td:nth-child(1) {
+    width: 4%;
+    min-width: 48px;
+}
+
+.decommissionInventoryTable th:nth-child(2),
+.decommissionInventoryTable td:nth-child(2) {
+    width: 10%;
+    min-width: 114px;
+}
+
+.decommissionInventoryTable th:nth-child(3),
+.decommissionInventoryTable td:nth-child(3) {
+    width: 13%;
+    min-width: 168px;
+}
+
+.decommissionInventoryTable th:nth-child(4),
+.decommissionInventoryTable td:nth-child(4),
+.decommissionInventoryTable th:nth-child(5),
+.decommissionInventoryTable td:nth-child(5),
+.decommissionInventoryTable th:nth-child(6),
+.decommissionInventoryTable td:nth-child(6),
+.decommissionInventoryTable th:nth-child(7),
+.decommissionInventoryTable td:nth-child(7),
+.decommissionInventoryTable th:nth-child(8),
+.decommissionInventoryTable td:nth-child(8),
+.decommissionInventoryTable th:nth-child(9),
+.decommissionInventoryTable td:nth-child(9),
+.decommissionInventoryTable th:nth-child(10),
+.decommissionInventoryTable td:nth-child(10) {
+    width: 10%;
+    min-width: 128px;
+}
+
+.decommissionInventoryTable th:nth-child(4),
+.decommissionInventoryTable td:nth-child(4),
+.decommissionInventoryTable th:nth-child(7),
+.decommissionInventoryTable td:nth-child(7),
+.decommissionInventoryTable th:nth-child(9),
+.decommissionInventoryTable td:nth-child(9) {
+    white-space: normal;
+    word-break: break-word;
+}
+
+.decommissionInventoryTable th:nth-child(11),
+.decommissionInventoryTable td:nth-child(11) {
+    width: 8%;
+    min-width: 120px;
+}
+
+.decommissionEmptyState {
+    padding: 28px 20px;
+    text-align: center;
+    color: #94a3b8;
+}

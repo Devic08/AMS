@@ -1,0 +1,605 @@
+:root {
+    --bg: #0f172a;
+    --surface: #111c34;
+    --surface-alt: #16233f;
+    --surface-elevated: rgba(17, 28, 52, 0.96);
+    --text: #e5eefc;
+    --muted: #94a3b8;
+    --line: #233252;
+    --blue: #60a5fa;
+    --blue-soft: rgba(96, 165, 250, 0.18);
+    --green: #34d399;
+    --green-soft: rgba(52, 211, 153, 0.18);
+    --amber: #fbbf24;
+    --amber-soft: rgba(251, 191, 36, 0.18);
+    --rose: #fb7185;
+    --rose-soft: rgba(251, 113, 133, 0.18);
+    --shadow: 0 22px 50px rgba(2, 6, 23, 0.35);
+    --app-bg: radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(52, 211, 153, 0.14), transparent 28%),
+        var(--bg);
+    --sidebar-bg: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 28%),
+        linear-gradient(180deg, #132347 0%, #182f61 52%, #0f1b38 100%);
+    --sidebar-text: #f8fafc;
+    --sidebar-muted: rgba(191, 219, 254, 0.78);
+    --sidebar-border: rgba(255, 255, 255, 0.08);
+    --sidebar-item-bg: rgba(255, 255, 255, 0.02);
+    --sidebar-item-hover: rgba(255, 255, 255, 0.1);
+    --sidebar-active-bg: linear-gradient(135deg, #ff0a78, #ff4f9d);
+    --sidebar-active-shadow: 0 14px 28px rgba(255, 10, 120, 0.32);
+    --control-bg: rgba(15, 23, 42, 0.88);
+    --control-bg-strong: rgba(15, 23, 42, 0.94);
+    --control-text: #f8fafc;
+    --control-muted: #cbd5e1;
+    --table-head-bg: rgba(15, 23, 42, 0.74);
+    --table-row-bg: rgba(17, 28, 52, 0.72);
+    --modal-backdrop: rgba(2, 6, 23, 0.76);
+    --hero-bg: linear-gradient(135deg, #111c34 0%, #1d4ed8 100%);
+    --blue-card-bg: radial-gradient(circle at top left, rgba(125, 211, 252, 0.22), transparent 34%),
+        linear-gradient(135deg, #102347 0%, #163563 54%, #10203d 100%);
+    --amber-card-bg: radial-gradient(circle at top left, rgba(253, 224, 71, 0.2), transparent 34%),
+        linear-gradient(135deg, #3d2708 0%, #6b4314 52%, #2e1d06 100%);
+    --rose-card-bg: radial-gradient(circle at top left, rgba(244, 114, 182, 0.2), transparent 34%),
+        linear-gradient(135deg, #3c1236 0%, #5a1d63 52%, #2b0c2c 100%);
+    --green-card-bg: radial-gradient(circle at top left, rgba(74, 222, 128, 0.2), transparent 34%),
+        linear-gradient(135deg, #0f2d2a 0%, #14554a 52%, #0d2422 100%);
+}
+
+:root[data-ams-theme="light"] {
+    --bg: #eef4fb;
+    --surface: #ffffff;
+    --surface-alt: #e8f1fc;
+    --surface-elevated: rgba(255, 255, 255, 0.94);
+    --text: #102033;
+    --muted: #52657a;
+    --line: #ccdaeb;
+    --blue: #2563eb;
+    --blue-soft: rgba(37, 99, 235, 0.13);
+    --green: #059669;
+    --green-soft: rgba(5, 150, 105, 0.13);
+    --amber: #b45309;
+    --amber-soft: rgba(180, 83, 9, 0.13);
+    --rose: #e11d48;
+    --rose-soft: rgba(225, 29, 72, 0.13);
+    --shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+    --app-bg: radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(5, 150, 105, 0.1), transparent 28%),
+        var(--bg);
+    --sidebar-bg: radial-gradient(circle at top left, rgba(37, 99, 235, 0.13), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, #dbeafe 52%, #eef6ff 100%);
+    --sidebar-text: #102033;
+    --sidebar-muted: #536579;
+    --sidebar-border: rgba(37, 99, 235, 0.14);
+    --sidebar-item-bg: rgba(37, 99, 235, 0.06);
+    --sidebar-item-hover: rgba(37, 99, 235, 0.12);
+    --sidebar-active-bg: linear-gradient(135deg, #2563eb, #0ea5e9);
+    --sidebar-active-shadow: 0 14px 28px rgba(37, 99, 235, 0.24);
+    --control-bg: rgba(255, 255, 255, 0.88);
+    --control-bg-strong: rgba(255, 255, 255, 0.96);
+    --control-text: #102033;
+    --control-muted: #52657a;
+    --table-head-bg: rgba(226, 236, 250, 0.94);
+    --table-row-bg: rgba(255, 255, 255, 0.9);
+    --modal-backdrop: rgba(15, 23, 42, 0.34);
+    --hero-bg: linear-gradient(135deg, #dbeafe 0%, #2563eb 100%);
+    --blue-card-bg: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 48%, #eff6ff 100%);
+    --amber-card-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 48%, #fff7ed 100%);
+    --rose-card-bg: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 48%, #fff1f2 100%);
+    --green-card-bg: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 48%, #ecfdf5 100%);
+}
+
+:root[data-ams-theme="ocean"] {
+    --bg: #05202d;
+    --surface: #082f49;
+    --surface-alt: #0c4a6e;
+    --surface-elevated: rgba(8, 47, 73, 0.94);
+    --text: #e0f7ff;
+    --muted: #9bdcf0;
+    --line: rgba(125, 211, 252, 0.24);
+    --blue: #22d3ee;
+    --blue-soft: rgba(34, 211, 238, 0.18);
+    --green: #2dd4bf;
+    --green-soft: rgba(45, 212, 191, 0.18);
+    --amber: #facc15;
+    --amber-soft: rgba(250, 204, 21, 0.18);
+    --rose: #fb7185;
+    --rose-soft: rgba(251, 113, 133, 0.18);
+    --app-bg: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.16), transparent 28%),
+        var(--bg);
+    --sidebar-bg: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 30%),
+        linear-gradient(180deg, #063247 0%, #075985 52%, #042435 100%);
+    --sidebar-text: #f0fdff;
+    --sidebar-muted: rgba(186, 230, 253, 0.82);
+    --sidebar-active-bg: linear-gradient(135deg, #0891b2, #22d3ee);
+    --sidebar-active-shadow: 0 14px 28px rgba(34, 211, 238, 0.24);
+    --control-bg: rgba(4, 31, 46, 0.88);
+    --control-bg-strong: rgba(4, 31, 46, 0.96);
+    --control-text: #e0f7ff;
+    --table-head-bg: rgba(6, 42, 61, 0.92);
+    --table-row-bg: rgba(8, 47, 73, 0.74);
+    --hero-bg: linear-gradient(135deg, #083344 0%, #0891b2 100%);
+    --blue-card-bg: linear-gradient(135deg, #083344 0%, #0e7490 54%, #05202d 100%);
+    --amber-card-bg: linear-gradient(135deg, #3d3107 0%, #856c0f 52%, #201904 100%);
+    --rose-card-bg: linear-gradient(135deg, #3b1231 0%, #8a2850 52%, #250b1d 100%);
+    --green-card-bg: linear-gradient(135deg, #053c3a 0%, #0f766e 52%, #042f2e 100%);
+}
+
+:root[data-ams-theme="forest"] {
+    --bg: #07180f;
+    --surface: #102418;
+    --surface-alt: #163523;
+    --surface-elevated: rgba(16, 36, 24, 0.94);
+    --text: #effdf5;
+    --muted: #a7cdb5;
+    --line: rgba(74, 222, 128, 0.2);
+    --blue: #86efac;
+    --blue-soft: rgba(134, 239, 172, 0.16);
+    --green: #22c55e;
+    --green-soft: rgba(34, 197, 94, 0.18);
+    --amber: #eab308;
+    --amber-soft: rgba(234, 179, 8, 0.18);
+    --rose: #f97316;
+    --rose-soft: rgba(249, 115, 22, 0.18);
+    --app-bg: radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(132, 204, 22, 0.12), transparent 28%),
+        var(--bg);
+    --sidebar-bg: radial-gradient(circle at top left, rgba(134, 239, 172, 0.14), transparent 30%),
+        linear-gradient(180deg, #0f2a19 0%, #14532d 52%, #07180f 100%);
+    --sidebar-text: #f0fdf4;
+    --sidebar-muted: rgba(187, 247, 208, 0.78);
+    --sidebar-active-bg: linear-gradient(135deg, #15803d, #22c55e);
+    --sidebar-active-shadow: 0 14px 28px rgba(34, 197, 94, 0.24);
+    --control-bg: rgba(7, 24, 15, 0.88);
+    --control-bg-strong: rgba(7, 24, 15, 0.96);
+    --control-text: #effdf5;
+    --table-head-bg: rgba(16, 52, 31, 0.92);
+    --table-row-bg: rgba(16, 36, 24, 0.74);
+    --hero-bg: linear-gradient(135deg, #0f2a19 0%, #15803d 100%);
+    --blue-card-bg: linear-gradient(135deg, #0f2a19 0%, #166534 54%, #07180f 100%);
+    --amber-card-bg: linear-gradient(135deg, #2f2a05 0%, #6b5d0b 52%, #171403 100%);
+    --rose-card-bg: linear-gradient(135deg, #351807 0%, #9a3412 52%, #1f0e04 100%);
+    --green-card-bg: linear-gradient(135deg, #0d3320 0%, #15803d 52%, #07180f 100%);
+}
+
+:root[data-ams-theme="ember"] {
+    --bg: #1f1207;
+    --surface: #2a180c;
+    --surface-alt: #3d2412;
+    --surface-elevated: rgba(42, 24, 12, 0.94);
+    --text: #fff7ed;
+    --muted: #d8bc9b;
+    --line: rgba(251, 146, 60, 0.23);
+    --blue: #fb923c;
+    --blue-soft: rgba(251, 146, 60, 0.18);
+    --green: #facc15;
+    --green-soft: rgba(250, 204, 21, 0.16);
+    --amber: #fdba74;
+    --amber-soft: rgba(253, 186, 116, 0.18);
+    --rose: #f43f5e;
+    --rose-soft: rgba(244, 63, 94, 0.18);
+    --app-bg: radial-gradient(circle at top left, rgba(251, 146, 60, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(244, 63, 94, 0.12), transparent 28%),
+        var(--bg);
+    --sidebar-bg: radial-gradient(circle at top left, rgba(253, 186, 116, 0.16), transparent 30%),
+        linear-gradient(180deg, #3a1d0a 0%, #7c2d12 52%, #1f1207 100%);
+    --sidebar-text: #fff7ed;
+    --sidebar-muted: rgba(254, 215, 170, 0.8);
+    --sidebar-active-bg: linear-gradient(135deg, #ea580c, #fb923c);
+    --sidebar-active-shadow: 0 14px 28px rgba(251, 146, 60, 0.24);
+    --control-bg: rgba(31, 18, 7, 0.88);
+    --control-bg-strong: rgba(31, 18, 7, 0.96);
+    --control-text: #fff7ed;
+    --table-head-bg: rgba(67, 35, 15, 0.92);
+    --table-row-bg: rgba(42, 24, 12, 0.74);
+    --hero-bg: linear-gradient(135deg, #3a1d0a 0%, #ea580c 100%);
+    --blue-card-bg: linear-gradient(135deg, #3a1d0a 0%, #9a3412 54%, #1f1207 100%);
+    --amber-card-bg: linear-gradient(135deg, #442604 0%, #92400e 52%, #201104 100%);
+    --rose-card-bg: linear-gradient(135deg, #3e1218 0%, #9f1239 52%, #22080d 100%);
+    --green-card-bg: linear-gradient(135deg, #3c3006 0%, #a16207 52%, #201904 100%);
+}
+
+:root[data-ams-theme] body,
+:root[data-ams-theme] .inventoryFormPageMain,
+:root[data-ams-theme] .submenuDemoShell {
+    background: var(--app-bg);
+    color: var(--text);
+}
+
+:root[data-ams-theme] .sidebar,
+:root[data-ams-theme] .submenuDemoGroup {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-border);
+}
+
+:root[data-ams-theme] .brandBlock h1,
+:root[data-ams-theme] .navContent strong,
+:root[data-ams-theme] .menuLabel {
+    color: var(--sidebar-text);
+}
+
+:root[data-ams-theme] .brandTag,
+:root[data-ams-theme] .navContent small,
+:root[data-ams-theme] .submenuArrow,
+:root[data-ams-theme] .submenuItem {
+    color: var(--sidebar-muted);
+}
+
+:root[data-ams-theme] .navContent {
+    gap: 0;
+}
+
+:root[data-ams-theme] .navContent small {
+    display: none;
+}
+
+:root[data-ams-theme] .collapseToggle {
+    border-color: var(--sidebar-border);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-ams-theme] .collapseToggle span {
+    background: var(--sidebar-text);
+}
+
+:root[data-ams-theme] .navItem {
+    background: var(--sidebar-item-bg);
+    color: var(--sidebar-text);
+}
+
+:root[data-ams-theme] .navItem:hover,
+:root[data-ams-theme] .navItem.active {
+    background: var(--sidebar-active-bg);
+    color: #ffffff;
+    box-shadow: var(--sidebar-active-shadow);
+}
+
+:root[data-ams-theme] .navIcon,
+:root[data-ams-theme] .submenuItem {
+    background: var(--sidebar-item-bg);
+}
+
+:root[data-ams-theme] .submenuItem:hover,
+:root[data-ams-theme] .submenuItem.active {
+    background: var(--sidebar-item-hover);
+    color: var(--sidebar-text);
+}
+
+:root[data-ams-theme] .topBarMetaCard,
+:root[data-ams-theme] .topBarIconBtn,
+:root[data-ams-theme] .topBarUserChip,
+:root[data-ams-theme] .profileDropdown,
+:root[data-ams-theme] .menuToggle,
+:root[data-ams-theme] .searchBox input,
+:root[data-ams-theme] .filterRow select,
+:root[data-ams-theme] .inventoryPageSizeSelect,
+:root[data-ams-theme] .assetsPageSizeSelect,
+:root[data-ams-theme] .inventoryPaginationButton,
+:root[data-ams-theme] .assetsPaginationButton,
+:root[data-ams-theme] .inventoryToolbarBtn,
+:root[data-ams-theme] .reallocationActionButton,
+:root[data-ams-theme] .secondaryButton,
+:root[data-ams-theme] .fieldSetCloseButton,
+:root[data-ams-theme] .modalIconButton,
+:root[data-ams-theme] .modalSecondaryButton,
+:root[data-ams-theme] .notificationTypeFilter,
+:root[data-ams-theme] .assetTagRuleFields input,
+:root[data-ams-theme] .assetTagRuleFields select,
+:root[data-ams-theme] .assetTagGlobalPrefixCard input {
+    background: var(--control-bg);
+    border-color: var(--line);
+    color: var(--control-text);
+}
+
+:root[data-ams-theme] .topBarMetaCard strong,
+:root[data-ams-theme] .topBarUserChip,
+:root[data-ams-theme] .profileDropdown a,
+:root[data-ams-theme] .overviewBarsHeader h4,
+:root[data-ams-theme] .advancedSettingsHero h2,
+:root[data-ams-theme] .advancedModalHeader h3,
+:root[data-ams-theme] .advancedPanelHeader h3,
+:root[data-ams-theme] .notificationCard h4,
+:root[data-ams-theme] .notificationFeedCard h4,
+:root[data-ams-theme] .notificationFeedBody strong,
+:root[data-ams-theme] .notificationItem strong,
+:root[data-ams-theme] .assetTagRuleCard h4,
+:root[data-ams-theme] .themeChoiceCard h4,
+:root[data-ams-theme] .fieldSetPage h1,
+:root[data-ams-theme] .predefinedHeader h2,
+:root[data-ams-theme] .predefinedSection h3,
+:root[data-ams-theme] .assetSubfieldHeader h4,
+:root[data-ams-theme] .fieldSetCardHeader h4,
+:root[data-ams-theme] .manageUserDetailCard h3,
+:root[data-ams-theme] .activityItem h4,
+:root[data-ams-theme] .recentChangeLine strong {
+    color: var(--text);
+}
+
+:root[data-ams-theme] .topBarMetaCard span,
+:root[data-ams-theme] .searchBox input::placeholder,
+:root[data-ams-theme] .contractToolbar input::placeholder,
+:root[data-ams-theme] .overviewBarsMeta,
+:root[data-ams-theme] .overviewChartLegendValue,
+:root[data-ams-theme] .predefinedIntro,
+:root[data-ams-theme] .formNote,
+:root[data-ams-theme] .assetSubfieldDescription,
+:root[data-ams-theme] .advancedModalHeader p:last-child,
+:root[data-ams-theme] .advancedPanelIntro,
+:root[data-ams-theme] .notificationFeedCard header p,
+:root[data-ams-theme] .notificationItem,
+:root[data-ams-theme] .themeChoiceCard p,
+:root[data-ams-theme] .activityMeta,
+:root[data-ams-theme] .recentChangeDetail {
+    color: var(--muted);
+}
+
+:root[data-ams-theme] .heroPanel {
+    background: var(--hero-bg);
+}
+
+:root[data-ams-theme] .accentBlue {
+    background: var(--blue-card-bg);
+}
+
+:root[data-ams-theme] .accentAmber {
+    background: var(--amber-card-bg);
+}
+
+:root[data-ams-theme] .accentRose {
+    background: var(--rose-card-bg);
+}
+
+:root[data-ams-theme] .accentGreen {
+    background: var(--green-card-bg);
+}
+
+:root[data-ams-theme] .panel,
+:root[data-ams-theme] .statCard,
+:root[data-ams-theme] .inventoryShell,
+:root[data-ams-theme] .reportShell,
+:root[data-ams-theme] .reportFilterPanel,
+:root[data-ams-theme] .reportMetaCard,
+:root[data-ams-theme] .reportSummaryCard,
+:root[data-ams-theme] .reportEmptyState,
+:root[data-ams-theme] .predefinedShell,
+:root[data-ams-theme] .predefinedSection,
+:root[data-ams-theme] .assetSubfieldCard,
+:root[data-ams-theme] .fieldSetShell,
+:root[data-ams-theme] .fieldSetCard,
+:root[data-ams-theme] .fieldSetValueSection,
+:root[data-ams-theme] .assetDynamicFieldCard,
+:root[data-ams-theme] .manageUserDetailCard,
+:root[data-ams-theme] .peoplePermissionCard,
+:root[data-ams-theme] .advancedSettingsHero,
+:root[data-ams-theme] .advancedSettingsModalDialog,
+:root[data-ams-theme] .advancedSettingsPanel,
+:root[data-ams-theme] .notificationCard,
+:root[data-ams-theme] .notificationFeedCard,
+:root[data-ams-theme] .assetTagGlobalPrefixCard,
+:root[data-ams-theme] .assetTagRuleCard,
+:root[data-ams-theme] .themeChoiceCard,
+:root[data-ams-theme] .contractSummaryCard,
+:root[data-ams-theme] .contractsShell,
+:root[data-ams-theme] .contractsPanel,
+:root[data-ams-theme] .contractTableWrap,
+:root[data-ams-theme] .categoryRow,
+:root[data-ams-theme] .overviewChartLegendItem,
+:root[data-ams-theme] .recentChangesModule,
+:root[data-ams-theme] .recentActivityModule,
+:root[data-ams-theme] .recentChangeItem,
+:root[data-ams-theme] .activityItem {
+    background: var(--surface-elevated);
+    border-color: var(--line);
+    color: var(--text);
+}
+
+:root[data-ams-theme] .advancedSettingsPanel,
+:root[data-ams-theme] .advancedSettingsModal .advancedSettingsPanel {
+    background: transparent;
+}
+
+:root[data-ams-theme] .submenuPage {
+    background: var(--sidebar-bg);
+    color: var(--text);
+}
+
+:root[data-ams-theme] .formField,
+:root[data-ams-theme] .fieldSetForm .formField,
+:root[data-ams-theme] .assetTagGlobalPrefixCard label,
+:root[data-ams-theme] .assetTagGlobalPrefixCard p,
+:root[data-ams-theme] .notificationFilterLabel,
+:root[data-ams-theme] .cleanupTable td,
+:root[data-ams-theme] .fieldSetForm .formField span,
+:root[data-ams-theme] .peoplePermissionCard label,
+:root[data-ams-theme] .manageUserDetailItem label {
+    color: var(--muted);
+}
+
+:root[data-ams-theme] .formField input,
+:root[data-ams-theme] .formField select,
+:root[data-ams-theme] .formField textarea,
+:root[data-ams-theme] .fieldSetForm .formField input,
+:root[data-ams-theme] .fieldSetForm .formField select,
+:root[data-ams-theme] .reportField input,
+:root[data-ams-theme] .reportField select,
+:root[data-ams-theme] .addFieldSelect,
+:root[data-ams-theme] .addFieldForm input,
+:root[data-ams-theme] .subfieldValueEditor input,
+:root[data-ams-theme] .modalInputWrap input,
+:root[data-ams-theme] .fieldSetEditForm .modalInputWrap select,
+:root[data-ams-theme] .inventorySearchInput,
+:root[data-ams-theme] .contractToolbar input,
+:root[data-ams-theme] .contractToolbar select,
+:root[data-ams-theme] .contractPager button {
+    background: var(--control-bg-strong);
+    border-color: var(--line);
+    color: var(--control-text);
+}
+
+:root[data-ams-theme] .inventoryMetaBar,
+:root[data-ams-theme] .inventoryPageSizeLabel,
+:root[data-ams-theme] .inventoryPaginationInfo,
+:root[data-ams-theme] .assetsPageSizeLabel,
+:root[data-ams-theme] .assetsPaginationInfo,
+:root[data-ams-theme] .inlineAction span {
+    color: var(--control-muted);
+}
+
+:root[data-ams-theme] .inventoryTable,
+:root[data-ams-theme] .reportTable,
+:root[data-ams-theme] .allAssetsInventoryTable,
+:root[data-ams-theme] .reallocationInventoryTable,
+:root[data-ams-theme] .decommissionInventoryTable,
+:root[data-ams-theme] .peopleAllUsersTable,
+:root[data-ams-theme] .manageUsersTable,
+:root[data-ams-theme] .invoiceTable,
+:root[data-ams-theme] .cleanupTable,
+:root[data-ams-theme] .contractTable {
+    color: var(--text);
+}
+
+:root[data-ams-theme] table th,
+:root[data-ams-theme] .inventoryTable th,
+:root[data-ams-theme] .reportTable th,
+:root[data-ams-theme] .allAssetsInventoryTable th,
+:root[data-ams-theme] .reallocationInventoryTable th,
+:root[data-ams-theme] .decommissionInventoryTable th,
+:root[data-ams-theme] .peopleAllUsersTable th,
+:root[data-ams-theme] .manageUsersTable th,
+:root[data-ams-theme] .invoiceTable th,
+:root[data-ams-theme] .cleanupTable th,
+:root[data-ams-theme] .contractTable th {
+    background: var(--table-head-bg);
+    color: var(--muted);
+    border-color: var(--line);
+}
+
+:root[data-ams-theme] table td,
+:root[data-ams-theme] .inventoryTable td,
+:root[data-ams-theme] .reportTable td,
+:root[data-ams-theme] .allAssetsInventoryTable td,
+:root[data-ams-theme] .reallocationInventoryTable td,
+:root[data-ams-theme] .decommissionInventoryTable td,
+:root[data-ams-theme] .peopleAllUsersTable td,
+:root[data-ams-theme] .manageUsersTable td,
+:root[data-ams-theme] .invoiceTable td,
+:root[data-ams-theme] .cleanupTable td,
+:root[data-ams-theme] .contractTable td {
+    background: var(--table-row-bg);
+    border-color: var(--line);
+}
+
+:root[data-ams-theme] .inventoryStatusBanner,
+:root[data-ams-theme] .statusBanner,
+:root[data-ams-theme] .pageNotice {
+    background: var(--blue-soft);
+    border-color: var(--line);
+    color: var(--text);
+}
+
+:root[data-ams-theme] .inventoryTableWrap,
+:root[data-ams-theme] .contractTableWrap,
+:root[data-ams-theme] .reportTableWrap,
+:root[data-ams-theme] .peopleAllUsersTableWrap,
+:root[data-ams-theme] .manageUsersTableWrap,
+:root[data-ams-theme] .reallocationTableWrap,
+:root[data-ams-theme] .decommissionTableWrap,
+:root[data-ams-theme] .cleanupTableWrap,
+:root[data-ams-theme] .tableWrap {
+    scrollbar-color: rgba(96, 165, 250, 0.72) rgba(15, 23, 42, 0.34);
+    scrollbar-width: auto;
+}
+
+:root[data-ams-theme] .inventoryTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .contractTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .reportTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .peopleAllUsersTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .manageUsersTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .reallocationTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .decommissionTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .cleanupTableWrap::-webkit-scrollbar,
+:root[data-ams-theme] .tableWrap::-webkit-scrollbar {
+    height: 14px;
+    width: 14px;
+}
+
+:root[data-ams-theme] .inventoryTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .contractTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .reportTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .peopleAllUsersTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .manageUsersTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .reallocationTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .decommissionTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .cleanupTableWrap::-webkit-scrollbar-track,
+:root[data-ams-theme] .tableWrap::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.34);
+    border-radius: 999px;
+}
+
+:root[data-ams-theme] .inventoryTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .contractTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .reportTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .peopleAllUsersTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .manageUsersTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .reallocationTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .decommissionTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .cleanupTableWrap::-webkit-scrollbar-thumb,
+:root[data-ams-theme] .tableWrap::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(96, 165, 250, 0.82), rgba(59, 130, 246, 0.9));
+    border: 3px solid rgba(15, 23, 42, 0.28);
+    border-radius: 999px;
+}
+
+:root[data-ams-theme] .inventoryTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .contractTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .reportTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .peopleAllUsersTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .manageUsersTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .reallocationTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .decommissionTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .cleanupTableWrap::-webkit-scrollbar-thumb:hover,
+:root[data-ams-theme] .tableWrap::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, rgba(125, 211, 252, 0.92), rgba(59, 130, 246, 0.98));
+}
+
+:root[data-ams-theme] .overviewPieCenter {
+    fill: var(--surface);
+}
+
+:root[data-ams-theme] .overviewPieTrack {
+    stroke: rgba(148, 163, 184, 0.18);
+}
+
+:root[data-ams-theme] .fieldChip,
+:root[data-ams-theme] .fieldSetValueChip,
+:root[data-ams-theme] .subfieldValueChip,
+:root[data-ams-theme] .manageUserAssignmentChip,
+:root[data-ams-theme] .notificationItem,
+:root[data-ams-theme] .notificationFeedRow,
+:root[data-ams-theme] .checkboxRow {
+    background: var(--surface-alt);
+    border-color: var(--line);
+    color: var(--text);
+}
+
+:root[data-ams-theme] .advancedSettingsModalBackdrop,
+:root[data-ams-theme] .fieldModalBackdrop,
+:root[data-ams-theme] .reallocationModal {
+    background: var(--modal-backdrop);
+}
+
+:root[data-ams-theme="light"] .accentBlue p,
+:root[data-ams-theme="light"] .accentBlue span,
+:root[data-ams-theme="light"] .accentAmber p,
+:root[data-ams-theme="light"] .accentAmber span,
+:root[data-ams-theme="light"] .accentRose p,
+:root[data-ams-theme="light"] .accentRose span,
+:root[data-ams-theme="light"] .accentGreen p,
+:root[data-ams-theme="light"] .accentGreen span,
+:root[data-ams-theme="light"] .statCard p,
+:root[data-ams-theme="light"] .statCard span,
+:root[data-ams-theme="light"] .statCard h3 {
+    color: var(--text);
+    text-shadow: none;
+}

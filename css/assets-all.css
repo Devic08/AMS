@@ -1,0 +1,192 @@
+.allAssetsInventoryTable {
+    width: max-content;
+    min-width: 100%;
+}
+
+.allAssetsInventoryTable th:nth-child(1),
+.allAssetsInventoryTable td:nth-child(1) {
+    width: 4%;
+    min-width: 48px;
+}
+
+.allAssetsInventoryTable th:nth-child(2),
+.allAssetsInventoryTable td:nth-child(2) {
+    width: 9%;
+    min-width: 108px;
+}
+
+.allAssetsInventoryTable th:nth-child(3),
+.allAssetsInventoryTable td:nth-child(3) {
+    width: 12%;
+    min-width: 160px;
+    text-align: left;
+}
+
+.allAssetsInventoryTable th:nth-child(4),
+.allAssetsInventoryTable td:nth-child(4) {
+    width: 12%;
+    min-width: 170px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.allAssetsInventoryTable th:nth-child(5),
+.allAssetsInventoryTable td:nth-child(5),
+.allAssetsInventoryTable th:nth-child(6),
+.allAssetsInventoryTable td:nth-child(6),
+.allAssetsInventoryTable th:nth-child(7),
+.allAssetsInventoryTable td:nth-child(7) {
+    width: 9%;
+    min-width: 120px;
+}
+
+.allAssetsInventoryTable th:nth-child(8),
+.allAssetsInventoryTable td:nth-child(8) {
+    width: 10%;
+    min-width: 150px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.allAssetsInventoryTable th:nth-child(9),
+.allAssetsInventoryTable td:nth-child(9) {
+    width: 8%;
+    min-width: 96px;
+}
+
+.allAssetsInventoryTable th:nth-child(10),
+.allAssetsInventoryTable td:nth-child(10) {
+    width: 9%;
+    min-width: 120px;
+}
+
+.allAssetsInventoryTable th:nth-child(11),
+.allAssetsInventoryTable td:nth-child(11) {
+    width: 10%;
+    min-width: 130px;
+}
+
+.allAssetsInventoryTable th:nth-child(12),
+.allAssetsInventoryTable td:nth-child(12) {
+    width: 8%;
+    min-width: 108px;
+}
+
+.allAssetTypeTag,
+.allAssetStatusBadge,
+.allAssetUserValue {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.allAssetTypeTag {
+    color: #5bc0ff;
+}
+
+.allAssetStatusBadge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.allAssetStatusBadge.is-ready {
+    color: #86efac;
+    background: rgba(22, 163, 74, 0.18);
+    border-color: rgba(74, 222, 128, 0.28);
+}
+
+.allAssetStatusBadge.is-deployed {
+    color: #7dd3fc;
+    background: rgba(14, 165, 233, 0.18);
+    border-color: rgba(56, 189, 248, 0.26);
+}
+
+.allAssetStatusBadge.is-repair {
+    color: #fdba74;
+    background: rgba(249, 115, 22, 0.18);
+    border-color: rgba(251, 146, 60, 0.28);
+}
+
+.allAssetStatusBadge.is-reserved {
+    color: #ddd6fe;
+    background: rgba(139, 92, 246, 0.18);
+    border-color: rgba(167, 139, 250, 0.28);
+}
+
+.allAssetStatusBadge.is-decommissioned,
+.allAssetStatusBadge.is-default {
+    color: #fca5a5;
+    background: rgba(239, 68, 68, 0.16);
+    border-color: rgba(248, 113, 113, 0.25);
+}
+
+.allAssetUserValue {
+    color: #e2e8f0;
+}
+
+.allAssetUserValue.is-stock {
+    color: #94a3b8;
+}
+
+.allAssetTagLink {
+    color: #5bc0ff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.allAssetTagLink:hover {
+    text-decoration: underline;
+}
+
+.inventoryActionBtn.info {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.assetsPageSizeLabel {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.assetsPageSizeSelect {
+    min-width: 72px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(15, 23, 42, 0.88);
+    color: #e2e8f0;
+    font: inherit;
+}
+
+.assetsPagination {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.assetsPaginationButton {
+    min-width: 72px;
+    padding: 9px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(15, 23, 42, 0.88);
+    color: #e2e8f0;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.assetsPaginationButton:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.assetsPaginationInfo {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 700;
+}

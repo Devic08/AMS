@@ -1,0 +1,49 @@
+.peoplePermissionSummary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.peoplePermissionCard {
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.peoplePermissionCard label {
+    display: block;
+    margin-bottom: 6px;
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.peoplePermissionCard span {
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.peoplePermissionGrid .formGroupWide {
+    grid-column: span 2;
+}
+
+@media (max-width: 960px) {
+    .peoplePermissionSummary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .peoplePermissionGrid .formGroupWide {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .peoplePermissionSummary {
+        grid-template-columns: 1fr;
+    }
+}
