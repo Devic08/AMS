@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Center - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/inventory-report.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="reportPageMain">
+        <section class="reportPageShell">
+            <header class="predefinedHeader reportPageHeader">
+                    <div>
+                        <p class="predefinedEyebrow">Reports</p>
+                        <h2>Report Center</h2>
+                        <p class="predefinedIntro" id="reportGeneratedIntro">Generate filtered reports for assets, allocation, decommission, accessories, licenses, people, and audit activity.</p>
+                    </div>
+                    <a class="reportBackLink" id="reportBackLink" href="dashboard.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Dashboard</span></a>
+            </header>
+
+            <section class="reportShell">
+                <div class="reportBanner" id="reportBanner" role="status" aria-live="polite"></div>
+
+                <form class="reportFilterPanel" id="reportFilterForm">
+                    <label class="reportField">
+                        <span>Report Type</span>
+                        <select id="reportTypeSelect">
+                            <option value="asset-inventory">Asset Inventory</option>
+                            <option value="asset-allocation">Asset Allocation</option>
+                            <option value="reallocation">Reallocation Ready Assets</option>
+                            <option value="decommission">Decommissioned Assets</option>
+                            <option value="accessories">Accessories Inventory</option>
+                            <option value="licenses">License Inventory</option>
+                            <option value="people">People Directory</option>
+                            <option value="audit">Audit & Change Trail</option>
+                        </select>
+                    </label>
+                    <label class="reportField">
+                        <span id="reportStatusFilterLabel">Status</span>
+                        <select id="reportStatusFilter"></select>
+                    </label>
+                    <label class="reportField">
+                        <span id="reportGroupFilterLabel">Category / Type</span>
+                        <select id="reportGroupFilter"></select>
+                    </label>
+                    <label class="reportField">
+                        <span id="reportOwnerFilterLabel">Location / Owner</span>
+                        <select id="reportOwnerFilter"></select>
+                    </label>
+                    <label class="reportField reportSearchField">
+                        <span>Search</span>
+                        <input id="reportSearchInput" type="search" placeholder="Search tag, user, model, location...">
+                    </label>
+                    <div class="reportFilterActions">
+                        <button class="reportActionButton generate" id="reportGenerateButton" type="submit"><i class='bx bx-bar-chart-alt-2'></i><span>Generate</span></button>
+                        <button class="reportActionButton reset" id="reportResetButton" type="button"><i class='bx bx-reset'></i><span>Reset</span></button>
+                    </div>
+                </form>
+
+                <div class="reportMetaCard">
+                    <div>
+                        <p class="reportMetaLabel">Generated On</p>
+                        <strong id="reportGeneratedAt">--</strong>
+                    </div>
+                    <div>
+                        <p class="reportMetaLabel">Applied Criteria</p>
+                        <strong id="reportCriteria">All inventory records</strong>
+                    </div>
+                </div>
+
+                <div class="reportSummaryGrid" id="reportSummaryGrid"></div>
+
+                <div class="reportActionsBar">
+                    <button class="reportActionButton pdf" id="reportPdfButton" type="button"><i class='bx bxs-file-pdf'></i><span>PDF</span></button>
+                    <button class="reportActionButton excel" id="reportExcelButton" type="button"><i class='bx bxs-file-export'></i><span>Excel</span></button>
+                    <button class="reportActionButton print" id="reportPrintButton" type="button"><i class='bx bx-printer'></i><span>Print</span></button>
+                </div>
+
+                <div class="reportTableWrap">
+                    <table class="reportTable">
+                        <thead>
+                            <tr id="reportTableHeadRow"></tr>
+                        </thead>
+                        <tbody id="reportTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="reportEmptyState" id="reportEmptyState" hidden>
+                    <i class='bx bx-file-blank'></i>
+                    <h3>No report data found</h3>
+                    <p>Change the report type or filters, then generate again. The Report Center reads directly from the current AMS records.</p>
+                    <a class="reportBackLink empty" id="reportBackEmptyLink" href="dashboard.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Dashboard</span></a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="script/inventory-models-store.js?v=20260502b"></script>
+    <script src="script/assets-store.js?v=20260502b"></script>
+    <script src="script/inventory-report.js?v=20260501a"></script>
+</body>
+</html>
+
+
+

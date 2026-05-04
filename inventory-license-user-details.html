@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Assignment Details - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/people-manage-user-details.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="dashboardShell">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebarHeader">
+                <div class="brandBlock">
+                    <div class="brandText">
+                        <p class="brandTag">Asset Management</p>
+                        <h1>AMS</h1>
+                    </div>
+                </div>
+                <button class="collapseToggle" id="collapseToggle" type="button" aria-label="Collapse sidebar" aria-expanded="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="menuBlock">
+                <p class="menuLabel">Main Menu</p>
+                <nav class="sidebarNav" id="sidebarNav">
+                    <a class="navItem" href="dashboard.html" data-section="overview"><span class="navIcon" aria-hidden="true"><i class='bx bx-grid-alt'></i></span><span class="navContent"><strong>Overview</strong><small>Live system summary and quick stats</small></span><span class="navTooltip">Overview</span></a>
+                    <div class="navGroup hasSubmenu" data-group="assets">
+                        <button class="navItem submenuToggle" type="button" data-section="assets" aria-expanded="false" aria-controls="assetsSubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-box'></i></span><span class="navContent"><strong>Assets</strong><small>Inventory records and ownership data</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">Assets</span></button>
+                        <div class="submenu" id="assetsSubmenu">
+                            <a class="submenuItem" href="assets-all.html" data-parent="assets" data-subsection="all-assets">All Assets</a>
+                            <a class="submenuItem" href="assets-reallocation.html" data-parent="assets" data-subsection="reallocation">Reallocation</a>
+                            <a class="submenuItem" href="assets-delete-decommission.html" data-parent="assets" data-subsection="delete-decommission">Decommission</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="dashboard.html?section=accessories" data-section="accessories"><span class="navIcon" aria-hidden="true"><i class='bx bx-plug'></i></span><span class="navContent"><strong>Accessories</strong><small>Cables, add-ons, and support items</small></span><span class="navTooltip">Accessories</span></a>
+                    <div class="navGroup hasSubmenu open" data-group="licenses">
+                        <button class="navItem submenuToggle active" type="button" data-section="licenses" aria-expanded="true" aria-controls="licensesSubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-badge-check'></i></span><span class="navContent"><strong>Licenses</strong><small>Software terms, keys, and renewals</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">Licenses</span></button>
+                        <div class="submenu" id="licensesSubmenu">
+                            <a class="submenuItem active" href="inventory-license-info.html" data-parent="licenses" data-subsection="licenses-info">License Info</a>
+                        </div>
+                    </div>
+                    <div class="navGroup hasSubmenu" data-group="people">
+                        <button class="navItem submenuToggle" type="button" data-section="people" aria-expanded="false" aria-controls="peopleSubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-group'></i></span><span class="navContent"><strong>People</strong><small>Users, teams, and assignment ownership</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">People</span></button>
+                        <div class="submenu" id="peopleSubmenu">
+                            <a class="submenuItem" href="people-all-users.html" data-parent="people" data-subsection="people-all-users">All Users</a>
+                            <a class="submenuItem" href="people-manage-users.html" data-parent="people" data-subsection="people-manage-users">Manage Users</a>
+                            <a class="submenuItem" href="people-admin-users.html" data-parent="people" data-subsection="people-admin-users">Admin Users</a>
+                            <a class="submenuItem" href="people-super-users.html" data-parent="people" data-subsection="people-super-users">Super Users</a>
+                            <a class="submenuItem" href="people-group.html" data-parent="people" data-subsection="people-group">Group</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="dashboard.html?section=audit" data-section="audit"><span class="navIcon" aria-hidden="true"><i class='bx bx-check-shield'></i></span><span class="navContent"><strong>Audit</strong><small>Verification, checks, and traceability</small></span><span class="navTooltip">Audit</span></a>
+                    <a class="navItem" href="inventory-report.html" data-section="report"><span class="navIcon" aria-hidden="true"><i class='bx bx-bar-chart-alt-2'></i></span><span class="navContent"><strong>Report</strong><small>Insights, trends, and exported summaries</small></span><span class="navTooltip">Report</span></a>
+                    <div class="navGroup hasSubmenu" data-group="inventory">
+                        <button class="navItem submenuToggle" type="button" data-section="inventory" aria-expanded="false" aria-controls="inventorySubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-archive'></i></span><span class="navContent"><strong>Inventory</strong><small>Models used across the organization</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">Inventory</span></button>
+                        <div class="submenu" id="inventorySubmenu">
+                            <a class="submenuItem" href="inventory-assets.html" data-parent="inventory" data-subsection="inventory-assets">Asset</a>
+                            <a class="submenuItem" href="inventory-accessories.html" data-parent="inventory" data-subsection="inventory-accessories">Accessories</a>
+                            <a class="submenuItem" href="inventory-license.html" data-parent="inventory" data-subsection="inventory-license">License</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="contracts.html" data-nav-page="contracts"><span class="navIcon" aria-hidden="true"><i class='bx bx-file'></i></span><span class="navContent"><strong>Contracts</strong><small>Vendor and procurement asset details</small></span><span class="navTooltip">Contracts</span></a>
+                    <a class="navItem" href="invoice.html" data-section="invoice"><span class="navIcon" aria-hidden="true"><i class='bx bx-receipt'></i></span><span class="navContent"><strong>Invoice</strong><small>Billing, records, and invoice tracking</small></span><span class="navTooltip">Invoice</span></a>
+                </nav>
+            </div>
+
+            <div class="menuBlock utilityBlock">
+                <p class="menuLabel">Utilities</p>
+                <nav class="sidebarNav">
+                    <div class="navGroup hasSubmenu" data-group="preferences">
+                        <button class="navItem submenuToggle" type="button" data-section="preferences" aria-expanded="false" aria-controls="settingsSubmenu">
+                            <span class="navIcon" aria-hidden="true"><i class='bx bx-cog'></i></span>
+                            <span class="navContent"><strong>Settings</strong><small>Access, preferences, and system rules</small></span>
+                            <span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span>
+                            <span class="navTooltip">Settings</span>
+                        </button>
+                        <div class="submenu" id="settingsSubmenu">
+                            <a class="submenuItem" href="settings-predefined-field.html" data-parent="preferences" data-subsection="settings-predefined-field">Predefined Field</a>
+                            <a class="submenuItem" href="predefined-fields.html" data-parent="preferences" data-subsection="settings-assets">Assets</a>
+                            <a class="submenuItem" href="settings-people.html" data-parent="preferences" data-subsection="settings-people">People</a>
+                            <a class="submenuItem" href="settings-accessories.html" data-parent="preferences" data-subsection="settings-accessories">Accessories</a>
+                            <a class="submenuItem" href="settings-licenses.html" data-parent="preferences" data-subsection="settings-licenses">Licenses</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="dashboard.html?section=help" data-section="help"><span class="navIcon" aria-hidden="true"><i class='bx bx-help-circle'></i></span><span class="navContent"><strong>Help Center</strong><small>FAQs, onboarding, and support details</small></span><span class="navTooltip">Help Center</span></a>
+                </nav>
+            </div>
+
+            <div class="highlightCard">
+                <p class="highlightLabel">Licenses</p>
+                <h2>Assignment View</h2>
+                <p>Focused user and license information for the selected assignment.</p>
+            </div>
+        </aside>
+
+        <main class="mainPanel predefinedMainPanel">
+            <section class="predefinedShell">
+                <header class="predefinedHeader">
+                    <div>
+                        <p class="predefinedEyebrow">Licenses</p>
+                        <h2 id="licenseAssignmentDetailsTitle">License Assignment Details</h2>
+                        <p class="predefinedIntro">Review only the selected user profile and the linked license assignment.</p>
+                    </div>
+                </header>
+
+                <section class="inventoryShell manageUserDetailShell">
+                    <div class="manageUserDetailActions">
+                        <a class="inventoryCreateButton manageUserBackButton" href="inventory-license-info.html"><i class='bx bx-left-arrow-alt'></i><span>Back</span></a>
+                    </div>
+                    <div id="licenseAssignmentDetailGrid" class="manageUserDetailGrid"></div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <div class="floatingTooltip" id="floatingTooltip" role="tooltip" aria-hidden="true"></div>
+
+    <script src="script/sidebar-submenu.js"></script>
+    <script src="script/inventory-license-user-details.js"></script>
+</body>
+</html>
+
+
+

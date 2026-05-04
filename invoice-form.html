@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Invoice Entry - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="inventoryFormPageMain">
+        <section class="inventoryFormPageShell">
+            <header class="predefinedHeader inventoryFormPageHeader">
+                <a class="inventoryFormBackLink" href="invoice.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Invoice</span></a>
+                <div>
+                    <p class="predefinedEyebrow">Invoice</p>
+                    <h2>Create Invoice Entry</h2>
+                    <p class="predefinedIntro">Create invoice records with vendor and date details for invoice register tracking.</p>
+                </div>
+            </header>
+
+            <section class="inventoryShell inventoryFormShell inventoryFormCardShell">
+                <form class="inventoryForm inventoryModelForm" id="invoiceEntryForm">
+                    <div id="invoiceFormStatus" class="inventoryStatusBanner formStatus" role="status" aria-live="polite"></div>
+                    <div class="inventoryFormGrid">
+                        <div class="formGroup">
+                            <label for="invoiceNumberInput">Invoice Number</label>
+                            <input id="invoiceNumberInput" type="text" placeholder="Enter invoice number" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceModelNameInput">Model Name</label>
+                            <input id="invoiceModelNameInput" type="text" placeholder="Enter model name" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceManufacturerInput">Manufacturer</label>
+                            <input id="invoiceManufacturerInput" type="text" placeholder="Enter manufacturer" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceSupplierInput">Vendor Name</label>
+                            <input id="invoiceSupplierInput" type="text" placeholder="Enter vendor name" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceAssetTypeInput">Asset Type</label>
+                            <input id="invoiceAssetTypeInput" type="text" placeholder="Enter asset type" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceTotalQtyInput">Total QTY</label>
+                            <input id="invoiceTotalQtyInput" type="number" min="0" placeholder="Total quantity" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceDateInput">Date of Invoice</label>
+                            <input id="invoiceDateInput" type="date" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="invoiceDocumentUploadInput">Invoice Document</label>
+                            <label class="inventoryUploadField" for="invoiceDocumentUploadInput">
+                                <span class="inventoryUploadIcon"><i class='bx bx-file'></i></span>
+                                <span class="inventoryUploadText">Upload</span>
+                                <span class="inventoryUploadMeta" id="invoiceDocumentUploadName">No file selected</span>
+                            </label>
+                            <input id="invoiceDocumentUploadInput" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" hidden>
+                        </div>
+                    </div>
+                    <div class="inventoryFormActions inventoryFormPageActions">
+                        <button class="inventoryFormSecondaryBtn" type="reset">Reset</button>
+                        <button class="inventoryFormPrimaryBtn" type="submit">Save</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="script/invoice-form.js"></script>
+</body>
+</html>
+
+

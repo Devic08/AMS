@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Accessory Model - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="inventoryFormPageMain">
+        <section class="inventoryFormPageShell">
+            <header class="predefinedHeader inventoryFormPageHeader">
+                <a class="inventoryFormBackLink" href="inventory-accessories.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Inventory</span></a>
+                <div>
+                    <p class="predefinedEyebrow">Inventory</p>
+                    <h2>Create Accessory Model</h2>
+                    <p class="predefinedIntro">Add a new accessory model record to the inventory catalog. Capture key metadata so it can be reused in the accessories table.</p>
+                </div>
+            </header>
+
+            <section class="inventoryShell inventoryFormShell inventoryFormCardShell">
+                <form class="inventoryForm inventoryModelForm" id="accessoryModelForm">
+                    <div id="accessoryFormStatus" class="inventoryStatusBanner formStatus" role="status" aria-live="polite"></div>
+                    <div class="inventoryFormGrid">
+                        <div class="formGroup">
+                            <label for="accessoryNameInput">Model Name</label>
+                            <input id="accessoryNameInput" type="text" placeholder="Enter accessory model name" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryImageInput">Model Image URL</label>
+                            <p class="inventoryFieldHint">Or upload an image file instead of using a URL.</p>
+                            <div class="inventoryImageInputRow">
+                                <input id="accessoryImageInput" type="url" placeholder="https://example.com/pic.png">
+                                <label class="inventoryUploadField" for="accessoryImageUploadInput">
+                                    <span class="inventoryUploadIcon"><i class='bx bx-upload'></i></span>
+                                    <span class="inventoryUploadText">Upload</span>
+                                    <span class="inventoryUploadMeta" id="accessoryImageUploadName">No file selected</span>
+                                </label>
+                            </div>
+                            <input id="accessoryImageUploadInput" type="file" accept="image/*" hidden>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryTypeInput">Accessory Type</label>
+                            <select id="accessoryTypeInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryBrandInput">Manufacturer</label>
+                            <select id="accessoryBrandInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryMinQtyInput">Minimum Quantity Threshold</label>
+                            <input id="accessoryMinQtyInput" type="number" min="0" placeholder="Minimum stock before alert">
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryTotalQtyInput">Total QTY</label>
+                            <input id="accessoryTotalQtyInput" type="number" min="0" placeholder="Total quantity available" required>
+                        </div>
+                        <div class="formGroup">
+                            <label>EOL</label>
+                            <div class="inventoryEolTriplet">
+                                <input id="accessoryEolYearsInput" type="number" min="0" placeholder="Year" aria-label="EOL Year">
+                                <input id="accessoryEolMonthsInput" type="number" min="0" placeholder="Monthes" aria-label="EOL Monthes">
+                                <input id="accessoryEolDaysInput" type="number" min="0" placeholder="Days" aria-label="EOL Days">
+                            </div>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryInvoiceNumberInput">Invoice Number</label>
+                            <div class="inventoryImageInputRow">
+                                <input id="accessoryInvoiceNumberInput" type="text" placeholder="Enter invoice number">
+                                <label class="inventoryUploadField" for="accessoryInvoiceDocumentUploadInput">
+                                    <span class="inventoryUploadIcon"><i class='bx bx-file'></i></span>
+                                    <span class="inventoryUploadText">Upload</span>
+                                    <span class="inventoryUploadMeta" id="accessoryInvoiceDocumentUploadName">No file selected</span>
+                                </label>
+                            </div>
+                            <input id="accessoryInvoiceDocumentUploadInput" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" hidden>
+                        </div>
+                    </div>
+                    <div class="inventoryFormActions inventoryFormPageActions">
+                        <button class="inventoryFormSecondaryBtn" type="reset">Reset</button>
+                        <button class="inventoryFormPrimaryBtn" type="submit">Save</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="script/field-sets-store.js"></script>
+    <script src="script/inventory-accessories-form.js"></script>
+</body>
+</html>
+
+

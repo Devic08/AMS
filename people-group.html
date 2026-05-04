@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/people-manage-users.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #groupModal.fieldModal.open,
+        #groupDetailsModal.fieldModal.open {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .groupModalLayout {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 18px;
+            width: min(1280px, calc(100vw - 32px));
+            margin: 0 auto;
+            overflow: visible;
+            position: relative;
+            z-index: 1;
+        }
+
+        .groupModalDialog {
+            width: min(920px, calc(100vw - 32px));
+            position: relative;
+            overflow: visible;
+            flex: 0 1 920px;
+            max-height: none;
+        }
+
+        .groupModalForm {
+            display: grid;
+            gap: 20px;
+        }
+
+        .groupMemberSection,
+        .groupRightsSection {
+            display: grid;
+            gap: 14px;
+            padding: 18px;
+            border: 1px solid rgba(71, 85, 105, 0.38);
+            border-radius: 22px;
+            background: rgba(15, 23, 42, 0.52);
+        }
+
+        .groupMemberSection h4,
+        .groupRightsSection h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93c5fd;
+        }
+
+        .groupMemberHint {
+            margin: 0;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .groupMemberSection {
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .groupMemberGrid,
+        .groupRightsGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .groupMemberPicker {
+            position: relative;
+            display: grid;
+            gap: 12px;
+        }
+
+        .groupMemberTrigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 56px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            border: 1px solid rgba(71, 85, 105, 0.44);
+            background: rgba(15, 23, 42, 0.92);
+            cursor: pointer;
+        }
+
+        .groupMemberTrigger:focus-within,
+        .groupMemberTrigger.is-open {
+            border-color: rgba(96, 165, 250, 0.72);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+        }
+
+        .groupMemberTriggerText {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .groupMemberDropdownPanel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding: 12px;
+            border: 1px solid rgba(71, 85, 105, 0.42);
+            border-radius: 18px;
+            background: rgba(12, 18, 33, 0.96);
+            box-shadow: 0 22px 44px rgba(2, 6, 23, 0.45);
+        }
+
+        .groupMemberDropdownPanel.open {
+            display: grid;
+            gap: 10px;
+        }
+
+        .groupMemberDropdownSearch {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid rgba(71, 85, 105, 0.42);
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.92);
+            color: #f8fafc;
+            outline: none;
+            font: inherit;
+        }
+
+        .groupMemberDropdownSearch:focus {
+            border-color: rgba(96, 165, 250, 0.72);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+        }
+
+        .groupMemberDropdownSearch::placeholder {
+            color: #94a3b8;
+        }
+
+        .groupMemberOptions {
+            display: grid;
+            gap: 10px;
+            max-height: 240px;
+            overflow: auto;
+            padding-right: 2px;
+        }
+
+        .groupMemberOption {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 16px;
+            border: 1px solid rgba(71, 85, 105, 0.38);
+            background: rgba(15, 23, 42, 0.82);
+            color: #e2e8f0;
+        }
+
+        .groupMemberOption input {
+            width: 16px;
+            height: 16px;
+            accent-color: #3b82f6;
+        }
+
+        .groupMemberMeta {
+            font-size: 14px;
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .groupMemberSelectedSummary {
+            display: grid;
+            gap: 8px;
+        }
+
+        .groupExistingMembers {
+            display: grid;
+            gap: 8px;
+        }
+
+        .groupExistingMembersTitle {
+            color: #93c5fd;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .groupSelectedRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(71, 85, 105, 0.32);
+            background: rgba(30, 41, 59, 0.72);
+        }
+
+        .groupSelectedRowText {
+            color: #e2e8f0;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .groupSelectedRowRemove {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.14);
+            color: #93c5fd;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .groupOwnerPicker {
+            position: relative;
+            display: grid;
+            gap: 12px;
+        }
+
+        .groupOwnerTrigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 56px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            border: 1px solid rgba(71, 85, 105, 0.44);
+            background: rgba(15, 23, 42, 0.92);
+            cursor: pointer;
+        }
+
+        .groupOwnerTrigger:focus-within,
+        .groupOwnerTrigger.is-open {
+            border-color: rgba(96, 165, 250, 0.72);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+        }
+
+        .groupOwnerTriggerText {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .groupOwnerDropdownPanel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding: 12px;
+            border: 1px solid rgba(71, 85, 105, 0.42);
+            border-radius: 18px;
+            background: rgba(12, 18, 33, 0.96);
+            box-shadow: 0 22px 44px rgba(2, 6, 23, 0.45);
+        }
+
+        .groupOwnerDropdownPanel.open {
+            display: grid;
+            gap: 10px;
+        }
+
+        .groupOwnerDropdownSearch {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid rgba(71, 85, 105, 0.42);
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.92);
+            color: #f8fafc;
+            outline: none;
+            font: inherit;
+        }
+
+        .groupOwnerDropdownSearch:focus {
+            border-color: rgba(96, 165, 250, 0.72);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+        }
+
+        .groupOwnerDropdownSearch::placeholder {
+            color: #94a3b8;
+        }
+
+        .groupOwnerOptions {
+            display: grid;
+            gap: 10px;
+            max-height: 240px;
+            overflow: auto;
+            padding-right: 2px;
+        }
+
+        .groupOwnerOption {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 16px;
+            border: 1px solid rgba(71, 85, 105, 0.38);
+            background: rgba(15, 23, 42, 0.82);
+            color: #e2e8f0;
+            cursor: pointer;
+        }
+
+        .groupOwnerOption.is-selected {
+            border-color: rgba(96, 165, 250, 0.6);
+            background: rgba(30, 64, 175, 0.24);
+        }
+
+        .groupOwnerMeta {
+            font-size: 14px;
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .groupOwnerSelectedSummary {
+            display: grid;
+            gap: 8px;
+        }
+
+        .groupMemberEmpty {
+            padding: 14px;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.7);
+            color: #94a3b8;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .groupModalTitleRow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .groupInfoPanel {
+            display: none;
+            width: 380px;
+            flex: 0 0 380px;
+            gap: 12px;
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(71, 85, 105, 0.38);
+            background: rgba(12, 18, 33, 0.96);
+            box-shadow: 0 22px 44px rgba(2, 6, 23, 0.45);
+            align-self: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .groupInfoPanel.open {
+            display: grid;
+        }
+
+        #groupViewButton {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            border-color: rgba(34, 197, 94, 0.55);
+            color: #f8fafc;
+            box-shadow: 0 16px 30px rgba(22, 163, 74, 0.28);
+        }
+
+        #groupViewButton:hover {
+            filter: brightness(1.05);
+        }
+
+        .groupInfoPanel h4 {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93c5fd;
+        }
+
+        .groupInfoList {
+            display: grid;
+            gap: 8px;
+        }
+
+        .groupInfoTable {
+            display: grid;
+            gap: 8px;
+        }
+
+        .groupInfoTableHeader,
+        .groupInfoTableRow {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 110px;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .groupInfoTableHeader {
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.32);
+            color: #93c5fd;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .groupInfoTableRow {
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(30, 41, 59, 0.72);
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .groupInfoMemberRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(30, 41, 59, 0.72);
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .groupInfoMemberText {
+            min-width: 0;
+        }
+
+        .groupInfoMemberRemove {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.14);
+            color: #93c5fd;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .groupInfoEmpty {
+            color: #94a3b8;
+            font-size: 14px;
+            padding: 8px 0;
+        }
+
+        @media (max-width: 1300px) {
+            .groupModalLayout {
+                flex-direction: column;
+                width: min(920px, calc(100vw - 32px));
+            }
+
+            .groupInfoPanel {
+                position: static;
+                width: 100%;
+                flex-basis: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboardShell">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebarHeader">
+                <div class="brandBlock">
+                    <div class="brandText">
+                        <p class="brandTag">Asset Management</p>
+                        <h1>AMS</h1>
+                    </div>
+                </div>
+                <button class="collapseToggle" id="collapseToggle" type="button" aria-label="Collapse sidebar" aria-expanded="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="menuBlock">
+                <p class="menuLabel">Main Menu</p>
+                <nav class="sidebarNav" id="sidebarNav">
+                    <a class="navItem" href="dashboard.html" data-section="overview"><span class="navIcon" aria-hidden="true"><i class='bx bx-grid-alt'></i></span><span class="navContent"><strong>Overview</strong><small>Live system summary and quick stats</small></span><span class="navTooltip">Overview</span></a>
+                    <div class="navGroup hasSubmenu" data-group="assets">
+                        <button class="navItem submenuToggle" type="button" data-section="assets" aria-expanded="false" aria-controls="assetsSubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-box'></i></span><span class="navContent"><strong>Assets</strong><small>Inventory records and ownership data</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">Assets</span></button>
+                        <div class="submenu" id="assetsSubmenu">
+                            <a class="submenuItem" href="assets-all.html" data-parent="assets" data-subsection="all-assets">All Assets</a>
+                            <a class="submenuItem" href="assets-reallocation.html" data-parent="assets" data-subsection="reallocation">Reallocation</a>
+                            <a class="submenuItem" href="assets-delete-decommission.html" data-parent="assets" data-subsection="delete-decommission">Decommission</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="dashboard.html?section=accessories" data-section="accessories"><span class="navIcon" aria-hidden="true"><i class='bx bx-plug'></i></span><span class="navContent"><strong>Accessories</strong><small>Cables, add-ons, and support items</small></span><span class="navTooltip">Accessories</span></a>
+                    <div class="navGroup hasSubmenu" data-group="licenses">
+                        <button class="navItem submenuToggle" type="button" data-section="licenses" aria-expanded="false" aria-controls="licensesSubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-badge-check'></i></span><span class="navContent"><strong>Licenses</strong><small>Software terms, keys, and renewals</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">Licenses</span></button>
+                        <div class="submenu" id="licensesSubmenu">
+                            <a class="submenuItem" href="inventory-license-info.html" data-parent="licenses" data-subsection="licenses-info">License Info</a>
+                        </div>
+                    </div>
+                    <div class="navGroup hasSubmenu open" data-group="people">
+                        <button class="navItem submenuToggle active" type="button" data-section="people" aria-expanded="true" aria-controls="peopleSubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-group'></i></span><span class="navContent"><strong>People</strong><small>Users, teams, and assignment ownership</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">People</span></button>
+                        <div class="submenu" id="peopleSubmenu">
+                            <a class="submenuItem" href="people-all-users.html" data-parent="people" data-subsection="people-all-users">All Users</a>
+                            <a class="submenuItem" href="people-manage-users.html" data-parent="people" data-subsection="people-manage-users">Manage Users</a>
+                            <a class="submenuItem" href="people-admin-users.html" data-parent="people" data-subsection="people-admin-users">Admin Users</a>
+                            <a class="submenuItem" href="people-super-users.html" data-parent="people" data-subsection="people-super-users">Super Users</a>
+                            <a class="submenuItem active" href="people-group.html" data-parent="people" data-subsection="people-group">Group</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="dashboard.html?section=audit" data-section="audit"><span class="navIcon" aria-hidden="true"><i class='bx bx-check-shield'></i></span><span class="navContent"><strong>Audit</strong><small>Verification, checks, and traceability</small></span><span class="navTooltip">Audit</span></a>
+                    <a class="navItem" href="inventory-report.html" data-section="report"><span class="navIcon" aria-hidden="true"><i class='bx bx-bar-chart-alt-2'></i></span><span class="navContent"><strong>Report</strong><small>Insights, trends, and exported summaries</small></span><span class="navTooltip">Report</span></a>
+                    <div class="navGroup hasSubmenu" data-group="inventory">
+                        <button class="navItem submenuToggle" type="button" data-section="inventory" aria-expanded="false" aria-controls="inventorySubmenu"><span class="navIcon" aria-hidden="true"><i class='bx bx-archive'></i></span><span class="navContent"><strong>Inventory</strong><small>Models used across the organization</small></span><span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span><span class="navTooltip">Inventory</span></button>
+                        <div class="submenu" id="inventorySubmenu">
+                            <a class="submenuItem" href="inventory-assets.html" data-parent="inventory" data-subsection="inventory-assets">Asset</a>
+                            <a class="submenuItem" href="inventory-accessories.html" data-parent="inventory" data-subsection="inventory-accessories">Accessories</a>
+                            <a class="submenuItem" href="inventory-license.html" data-parent="inventory" data-subsection="inventory-license">License</a>
+
+                        </div>
+                    </div>
+                    <a class="navItem" href="contracts.html" data-nav-page="contracts"><span class="navIcon" aria-hidden="true"><i class='bx bx-file'></i></span><span class="navContent"><strong>Contracts</strong><small>Vendor and procurement asset details</small></span><span class="navTooltip">Contracts</span></a>
+                    <a class="navItem" href="invoice.html" data-section="invoice"><span class="navIcon" aria-hidden="true"><i class='bx bx-receipt'></i></span><span class="navContent"><strong>Invoice</strong><small>Billing, records, and invoice tracking</small></span><span class="navTooltip">Invoice</span></a>
+                </nav>
+            </div>
+
+            <div class="menuBlock utilityBlock">
+                <p class="menuLabel">Utilities</p>
+                <nav class="sidebarNav">
+                    <div class="navGroup hasSubmenu" data-group="preferences">
+                        <button class="navItem submenuToggle" type="button" data-section="preferences" aria-expanded="false" aria-controls="settingsSubmenu">
+                            <span class="navIcon" aria-hidden="true"><i class='bx bx-cog'></i></span>
+                            <span class="navContent"><strong>Settings</strong><small>Access, preferences, and system rules</small></span>
+                            <span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span>
+                            <span class="navTooltip">Settings</span>
+                        </button>
+                        <div class="submenu" id="settingsSubmenu">
+                            <a class="submenuItem" href="settings-predefined-field.html" data-parent="preferences" data-subsection="settings-predefined-field">Predefined Field</a>
+                            <a class="submenuItem" href="predefined-fields.html" data-parent="preferences" data-subsection="settings-assets">Assets</a>
+                            <a class="submenuItem" href="settings-people.html" data-parent="preferences" data-subsection="settings-people">People</a>
+                            <a class="submenuItem" href="settings-accessories.html" data-parent="preferences" data-subsection="settings-accessories">Accessories</a>
+                            <a class="submenuItem" href="settings-licenses.html" data-parent="preferences" data-subsection="settings-licenses">Licenses</a>
+                        </div>
+                    </div>
+                    <a class="navItem" href="dashboard.html?section=help" data-section="help"><span class="navIcon" aria-hidden="true"><i class='bx bx-help-circle'></i></span><span class="navContent"><strong>Help Center</strong><small>FAQs, onboarding, and support details</small></span><span class="navTooltip">Help Center</span></a>
+                </nav>
+            </div>
+
+            <div class="highlightCard">
+                <p class="highlightLabel">People</p>
+                <h2>Group</h2>
+                <p>People groups, memberships, and group-level organization view.</p>
+            </div>
+        </aside>
+
+        <main class="mainPanel predefinedMainPanel">
+            <section class="predefinedShell">
+                <header class="predefinedHeader">
+                    <div>
+                        <p class="predefinedEyebrow">People</p>
+                        <h2>Group</h2>
+                        <p class="predefinedIntro">Group shows created groups and the number of users inside each group, while keeping the same management-style table experience.</p>
+                    </div>
+                </header>
+
+                <section class="inventoryShell">
+                    <div class="inventoryStatusBanner" id="roleUsersStatusBanner" role="status" aria-live="polite"></div>
+                    <div class="inventoryMetaBar">
+                        <p id="roleUsersResultsTop">Showing 0 to 0 of 0 rows</p>
+                        <div class="inventoryMetaRight">
+                            <span id="roleUsersSelectionCount">0 selected</span>
+                            <span class="inventoryRowsBadge" id="roleUsersRowsBadge">0</span>
+                            <span>rows</span>
+                        </div>
+                    </div>
+
+                    <div class="inventoryHeaderTools">
+                        <div class="inventorySearchWrap">
+                            <input id="roleUsersSearchInput" type="search" placeholder="Search group, code, department, owner">
+                            <button class="inventorySearchButton" id="roleUsersSearchClear" type="button" aria-label="Clear search"><i class='bx bx-x'></i></button>
+                        </div>
+                        <div class="inventoryToolbarIcons" aria-label="Group tools">
+                            <button class="inventoryToolbarBtn" id="groupCreateButton" type="button" aria-label="Create group"><i class='bx bx-plus'></i></button>
+                            <button class="inventoryToolbarBtn" id="roleUsersRefreshButton" type="button" aria-label="Refresh"><i class='bx bx-refresh'></i></button>
+                            <button class="inventoryToolbarBtn" id="roleUsersDeleteButton" type="button" aria-label="Delete selected"><i class='bx bx-trash'></i></button>
+                            <button class="inventoryToolbarBtn" id="roleUsersExportButton" type="button" aria-label="Export"><i class='bx bx-export'></i></button>
+                            <button class="inventoryToolbarBtn permission" id="roleUsersPermissionButton" type="button" aria-label="Assign permission"><i class='bx bx-shield-quarter'></i></button>
+                        </div>
+                    </div>
+
+                    <div class="inventoryTableWrap roleUsersTableWrap manageUsersTableWrap">
+                        <table class="inventoryTable roleUsersTable manageUsersTable">
+                            <thead id="roleUsersTableHead"></thead>
+                            <tbody id="roleUsersTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="inventoryMetaBar inventoryMetaBarBottom">
+                        <p id="roleUsersResultsBottom">Showing 0 to 0 of 0 rows</p>
+                        <div class="inventoryMetaRight">
+                            <span class="inventoryRowsBadge" id="roleUsersRowsBadgeBottom">0</span>
+                            <span>rows</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <div class="floatingTooltip" id="floatingTooltip" role="tooltip" aria-hidden="true"></div>
+
+    <div class="fieldModal" id="groupModal" aria-hidden="true">
+        <div class="fieldModalBackdrop" data-close-group-modal></div>
+        <div class="groupModalLayout">
+        <div class="fieldModalDialog groupModalDialog" role="dialog" aria-modal="true" aria-labelledby="groupModalTitle">
+                <div class="fieldModalHeader">
+                    <div>
+                        <p id="groupModalEyebrow">People Group</p>
+                        <div class="groupModalTitleRow">
+                            <h3 id="groupModalTitle">Create Group</h3>
+                        </div>
+                    </div>
+                    <button class="modalIconButton" type="button" id="groupModalCloseButton" aria-label="Close group form">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+
+            <form class="groupModalForm" id="groupModalForm">
+                <div id="groupModalStatus" class="inventoryStatusBanner formStatus" role="status" aria-live="polite"></div>
+
+                <div class="inventoryFormGrid">
+                    <div class="formGroup">
+                        <label for="groupNameInput">Group Name</label>
+                        <input id="groupNameInput" type="text" placeholder="Enter group name" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="groupCodeInput">Group Code</label>
+                        <input id="groupCodeInput" type="text" placeholder="Enter group code" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="groupDepartmentInput">Department</label>
+                        <input id="groupDepartmentInput" type="text" placeholder="Enter department">
+                    </div>
+                    <div class="formGroup">
+                        <label>Owner / Admin</label>
+                        <div class="groupOwnerPicker">
+                            <div class="groupOwnerTrigger" id="groupOwnerTrigger" tabindex="0" role="button" aria-expanded="false">
+                                <span class="groupOwnerTriggerText" id="groupOwnerTriggerText">Select owner / admin</span>
+                                <i class='bx bx-chevron-down' id="groupOwnerDropdownIcon"></i>
+                            </div>
+                            <div class="groupOwnerSelectedSummary" id="groupOwnerSelectedSummary"></div>
+                            <div class="groupOwnerDropdownPanel" id="groupOwnerDropdownPanel">
+                                <input class="groupOwnerDropdownSearch" id="groupOwnerSearchInput" type="search" placeholder="Search name or employee code">
+                                <div class="groupOwnerOptions" id="groupOwnerOptions"></div>
+                            </div>
+                            <select id="groupOwnerInput" hidden></select>
+                        </div>
+                    </div>
+                    <div class="formGroup">
+                        <label for="groupStatusInput">Status</label>
+                        <select id="groupStatusInput">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <section class="groupMemberSection">
+                    <div>
+                        <h4>Members</h4>
+                    </div>
+                    <div class="groupMemberPicker">
+                        <div style="display:flex; gap:12px; align-items:stretch;">
+                            <div class="groupMemberTrigger" id="groupMemberTrigger" tabindex="0" role="button" aria-expanded="false" style="flex:1;">
+                                <span class="groupMemberTriggerText" id="groupMemberTriggerText">Select members</span>
+                                <i class='bx bx-chevron-down' id="groupMemberDropdownIcon"></i>
+                            </div>
+                            <button class="modalSecondaryButton" id="groupViewButton" type="button">View</button>
+                        </div>
+                        <div class="groupExistingMembers" id="groupExistingMembers"></div>
+                        <div class="groupMemberSelectedSummary" id="groupSelectedMembers"></div>
+                        <div class="groupMemberDropdownPanel" id="groupMembersGrid">
+                            <input class="groupMemberDropdownSearch" id="groupMemberSearchInput" type="search" placeholder="Search name or employee code">
+                            <div class="groupMemberOptions" id="groupMemberOptions"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="groupRightsSection">
+                    <h4>Group Permissions</h4>
+                    <div class="groupRightsGrid">
+                        <div class="formGroup">
+                            <label for="groupAssetRightsInput">Asset</label>
+                            <select id="groupAssetRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="groupAccessoryRightsInput">Accesories</label>
+                            <select id="groupAccessoryRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="groupLicenseRightsInput">License</label>
+                            <select id="groupLicenseRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="groupPeopleRightsInput">People</label>
+                            <select id="groupPeopleRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="groupInvoiceRightsInput">Invoice</label>
+                            <select id="groupInvoiceRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="groupSettingsRightsInput">Settings</label>
+                            <select id="groupSettingsRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="groupReportRightsInput">Report</label>
+                            <select id="groupReportRightsInput">
+                                <option value="None">None</option>
+                                <option value="View">View</option>
+                                <option value="Manage">Manage</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="fieldModalActions">
+                    <button class="modalSecondaryButton" type="button" id="groupModalCancelButton">Cancel</button>
+                    <button class="modalPrimaryButton" type="submit" id="groupModalSaveButton">Save Group</button>
+                </div>
+            </form>
+        </div>
+        <div class="groupInfoPanel" id="groupInfoPanel">
+            <div>
+                <h4>Owner / Admin</h4>
+                <div class="groupInfoList" id="groupInfoOwnerList"></div>
+            </div>
+            <div>
+                <h4>Members</h4>
+                <div class="groupInfoList" id="groupInfoMembersList"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="fieldModal" id="groupDetailsModal" aria-hidden="true">
+        <div class="fieldModalBackdrop" data-close-group-details></div>
+        <div class="fieldModalDialog groupModalDialog" role="dialog" aria-modal="true" aria-labelledby="groupDetailsTitle">
+            <div class="fieldModalHeader">
+                <div>
+                    <p>Group Details</p>
+                    <h3 id="groupDetailsTitle">View Group</h3>
+                </div>
+                <button class="modalIconButton" type="button" id="groupDetailsCloseButton" aria-label="Close group details">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <div class="groupInfoPanel open" style="position:static;width:auto;box-shadow:none;" id="groupDetailsPanel">
+                <div>
+                    <h4>Group Info</h4>
+                    <div class="groupInfoList" id="groupDetailsInfoList"></div>
+                </div>
+                <div>
+                    <h4>Owner / Admin</h4>
+                    <div class="groupInfoList" id="groupDetailsOwnerList"></div>
+                </div>
+                <div>
+                    <h4>Members</h4>
+                    <div class="groupInfoList" id="groupDetailsMembersList"></div>
+                </div>
+                <div>
+                    <h4>Permissions</h4>
+                    <div class="groupInfoList" id="groupDetailsPermissionsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.peopleGroupConfig = {
+            pageTitle: "Group",
+            exportFileName: "group-users.csv",
+            emptyText: "No group records found for the current search.",
+            refreshMessage: "Group table updated."
+        };
+    </script>
+    <script src="script/sidebar-submenu.js"></script>
+    <script src="script/people-group-logic.js"></script>
+    <script src="script/people-group.js"></script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Role & Permission - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/people-manage-users.css">
+    <link rel="stylesheet" href="css/people-permissions.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="inventoryFormPageMain">
+        <section class="inventoryFormPageShell">
+            <header class="predefinedHeader inventoryFormPageHeader">
+                <a class="inventoryFormBackLink" href="people-manage-users.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Manage Users</span></a>
+                <div>
+                    <p class="predefinedEyebrow">People</p>
+                    <h2>Assign Role & Permission</h2>
+                    <p class="predefinedIntro">Assign role, login access, and module permission to the selected user.</p>
+                </div>
+            </header>
+
+            <section class="inventoryShell inventoryFormShell inventoryFormCardShell">
+                <form class="inventoryForm inventoryModelForm" id="peoplePermissionsForm">
+                    <div id="peoplePermissionsStatus" class="inventoryStatusBanner formStatus" role="status" aria-live="polite"></div>
+
+                    <section class="peoplePermissionSummary" id="peoplePermissionSummary"></section>
+
+                    <div class="inventoryFormGrid peoplePermissionGrid">
+                        <div class="formGroup">
+                            <label for="permissionRoleInput">Role</label>
+                            <select id="permissionRoleInput" required></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionAuthorizationInput">Authorization</label>
+                            <input id="permissionAuthorizationInput" type="text" readonly>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionLoginInput">Login</label>
+                            <input id="permissionLoginInput" type="text" readonly>
+                        </div>
+                        <div class="formGroup formGroupWide">
+                            <label for="permissionAssignableRolesInput">Can Assign Roles</label>
+                            <input id="permissionAssignableRolesInput" type="text" readonly>
+                        </div>
+
+                        <div class="formGroup">
+                            <label for="permissionAssetInput">Asset</label>
+                            <select id="permissionAssetInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionAccessoriesInput">Accesories</label>
+                            <select id="permissionAccessoriesInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionLicenseInput">License</label>
+                            <select id="permissionLicenseInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionPeopleInput">People</label>
+                            <select id="permissionPeopleInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionInvoiceInput">Invoice</label>
+                            <select id="permissionInvoiceInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionSettingsInput">Settings</label>
+                            <select id="permissionSettingsInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="permissionReportInput">Report</label>
+                            <select id="permissionReportInput"></select>
+                        </div>
+                    </div>
+
+                    <div class="inventoryFormActions inventoryFormPageActions">
+                        <button class="inventoryFormSecondaryBtn" type="button" id="peoplePermissionsReset">Reset</button>
+                        <button class="inventoryFormPrimaryBtn" type="submit">Save</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="script/people-group-logic.js"></script>
+    <script src="script/people-permissions.js"></script>
+</body>
+</html>
+
+

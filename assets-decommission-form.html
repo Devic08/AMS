@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decommission Asset - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/assets-submenu-pages.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="submenuPage" data-page="decommission-form">
+        <a class="backLink" href="assets-delete-decommission.html">Back to Decommission</a>
+        <p class="pageEyebrow">Assets</p>
+        <h1>Decommission Asset</h1>
+        <p class="pageCopy">Load an asset, mark it as decommissioned, and capture the archive location and closure notes.</p>
+        <section class="pageNotice" id="pageStatus" role="status" aria-live="polite"></section>
+        <form class="formShell" id="assetLifecycleForm">
+            <div class="formGrid">
+                <label class="formField">
+                    <span>Asset Tag</span>
+                    <input id="assetTagLookupInput" type="text" placeholder="Enter asset tag" required>
+                </label>
+                <div class="inlineAction">
+                    <span>Load retirement candidate</span>
+                    <button class="secondaryButton" id="loadAssetButton" type="button">Load Asset</button>
+                </div>
+                <label class="formField">
+                    <span>Asset Name</span>
+                    <input id="assetNameInput" type="text" readonly>
+                </label>
+                <label class="formField">
+                    <span>Current Status</span>
+                    <input id="currentStatusInput" type="text" readonly>
+                </label>
+                <label class="formField">
+                    <span>Retirement Status</span>
+                    <select id="assetStatusInput">
+                        <option value="Decommissioned">Decommissioned</option>
+                        <option value="Disposed">Disposed</option>
+                        <option value="Archived">Archived</option>
+                    </select>
+                </label>
+                <label class="formField">
+                    <span>Archive Location</span>
+                    <input id="transferLocationInput" type="text" placeholder="Archive room / disposal vendor" required>
+                </label>
+            </div>
+            <label class="formField">
+                <span>Closure Notes</span>
+                <textarea id="assetNotesInput" rows="4" placeholder="Disposal note, ticket number, or approval reference" required></textarea>
+            </label>
+            <div class="pageActions">
+                <button class="primaryButton dangerButton" type="submit">Save Decommission</button>
+                <a class="secondaryButton" href="assets-delete-decommission.html">Back to Decommission</a>
+            </div>
+        </form>
+    </main>
+    <script src="script/assets-store.js?v=20260502b"></script>
+    <script src="script/assets-submenu-pages.js?v=20260429d"></script>
+</body>
+</html>
+
+
+

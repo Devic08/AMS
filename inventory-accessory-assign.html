@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Accessory - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="inventoryFormPageMain">
+        <section class="inventoryFormPageShell">
+            <header class="predefinedHeader inventoryFormPageHeader">
+                <a class="inventoryFormBackLink" href="inventory-accessories-info.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Accessories Info</span></a>
+                <div>
+                    <p class="predefinedEyebrow">Accessories</p>
+                    <h2>Assign Accessory</h2>
+                    <p class="predefinedIntro">Assign an accessory model to a user with manufacturer, type, quantity, and assignment date details.</p>
+                </div>
+            </header>
+
+            <section class="inventoryShell inventoryFormShell inventoryFormCardShell">
+                <form class="inventoryForm inventoryModelForm" id="accessoryAssignForm">
+                    <div id="accessoryAssignStatus" class="inventoryStatusBanner formStatus" role="status" aria-live="polite"></div>
+                    <div class="inventoryFormGrid">
+                        <div class="formGroup">
+                            <label for="accessoryAssignUserInput">User</label>
+                            <select id="accessoryAssignUserInput" required></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryAssignModelInput">Accessory Model</label>
+                            <select id="accessoryAssignModelInput" required></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryAssignManufacturerInput">Manufacturer</label>
+                            <input id="accessoryAssignManufacturerInput" type="text" placeholder="Auto-filled from selected accessory" readonly>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryAssignTypeInput">Accessory Type</label>
+                            <input id="accessoryAssignTypeInput" type="text" placeholder="Auto-filled from selected accessory" readonly>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryAssignQuantityInput">Quantity</label>
+                            <input id="accessoryAssignQuantityInput" type="number" min="1" step="1" value="1" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="accessoryAssignDateInput">Assigned Date</label>
+                            <input id="accessoryAssignDateInput" type="date" required>
+                        </div>
+                    </div>
+                    <div class="inventoryFormActions inventoryFormPageActions">
+                        <button class="inventoryFormSecondaryBtn" type="reset">Reset</button>
+                        <button class="inventoryFormPrimaryBtn" type="submit">Save</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="script/inventory-accessory-assign.js"></script>
+</body>
+</html>
+
+

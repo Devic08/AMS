@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create License Model - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/dashboard.css?v=20260501a">
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link rel="stylesheet" href="css/inventory-assets.css">
+    <link rel="stylesheet" href="css/predefined-fields.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="inventoryFormPageMain">
+        <section class="inventoryFormPageShell">
+            <header class="predefinedHeader inventoryFormPageHeader">
+                <a class="inventoryFormBackLink" href="inventory-license.html"><i class='bx bx-left-arrow-alt'></i><span>Back to Inventory</span></a>
+                <div>
+                    <p class="predefinedEyebrow">Inventory</p>
+                    <h2>Create License Model</h2>
+                    <p class="predefinedIntro">Add a new license model record to the inventory catalog. Capture key metadata so it can be reused in the license table.</p>
+                </div>
+            </header>
+
+            <section class="inventoryShell inventoryFormShell inventoryFormCardShell">
+                <form class="inventoryForm inventoryModelForm" id="licenseModelForm">
+                    <div id="licenseFormStatus" class="inventoryStatusBanner formStatus" role="status" aria-live="polite"></div>
+                    <div class="inventoryFormGrid">
+                        <div class="formGroup">
+                            <label for="licenseNameInput">Model Name</label>
+                            <input id="licenseNameInput" type="text" placeholder="Enter license name" required>
+                        </div>
+                        <div class="formGroup">
+                            <label for="licenseImageInput">Model Image URL</label>
+                            <p class="inventoryFieldHint">Or upload an image file instead of using a URL.</p>
+                            <div class="inventoryImageInputRow">
+                                <input id="licenseImageInput" type="url" placeholder="https://example.com/pic.png">
+                                <label class="inventoryUploadField" for="licenseImageUploadInput">
+                                    <span class="inventoryUploadIcon"><i class='bx bx-upload'></i></span>
+                                    <span class="inventoryUploadText">Upload</span>
+                                    <span class="inventoryUploadMeta" id="licenseImageUploadName">No file selected</span>
+                                </label>
+                            </div>
+                            <input id="licenseImageUploadInput" type="file" accept="image/*" hidden>
+                        </div>
+                        <div class="formGroup">
+                            <label for="licenseTypeInput">License Type</label>
+                            <select id="licenseTypeInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="licenseVendorInput">Manufacturer</label>
+                            <select id="licenseVendorInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="licenseTotalQtyInput">Total QTY (Seats)</label>
+                            <input id="licenseTotalQtyInput" type="number" min="0" placeholder="Total seats/licenses" required>
+                        </div>
+                        <div class="formGroup">
+                            <label>EOL</label>
+                            <div class="inventoryEolTriplet">
+                                <input id="licenseEolYearsInput" type="number" min="0" placeholder="Year" aria-label="EOL Year">
+                                <input id="licenseEolMonthsInput" type="number" min="0" placeholder="Monthes" aria-label="EOL Monthes">
+                                <input id="licenseEolDaysInput" type="number" min="0" placeholder="Days" aria-label="EOL Days">
+                            </div>
+                        </div>
+                        <div class="formGroup">
+                            <label for="licenseCategoryInput">Category</label>
+                            <select id="licenseCategoryInput"></select>
+                        </div>
+                        <div class="formGroup">
+                            <label for="licenseInvoiceNumberInput">Invoice Number</label>
+                            <div class="inventoryImageInputRow">
+                                <input id="licenseInvoiceNumberInput" type="text" placeholder="Enter invoice number">
+                                <label class="inventoryUploadField" for="licenseInvoiceDocumentUploadInput">
+                                    <span class="inventoryUploadIcon"><i class='bx bx-file'></i></span>
+                                    <span class="inventoryUploadText">Upload</span>
+                                    <span class="inventoryUploadMeta" id="licenseInvoiceDocumentUploadName">No file selected</span>
+                                </label>
+                            </div>
+                            <input id="licenseInvoiceDocumentUploadInput" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" hidden>
+                        </div>
+                    </div>
+                    <div class="inventoryFormActions inventoryFormPageActions">
+                        <button class="inventoryFormSecondaryBtn" type="reset">Reset</button>
+                        <button class="inventoryFormPrimaryBtn" type="submit">Save</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="script/field-sets-store.js"></script>
+    <script src="script/inventory-license-form.js"></script>
+</body>
+</html>
+
+

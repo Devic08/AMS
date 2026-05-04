@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Changes - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/assets-submenu-pages.css">
+    <link rel="stylesheet" href="css/field-sets.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="submenuPage" data-page="update-changes">
+        <a class="backLink" href="dashboard.html">Back to Dashboard</a>
+        <p class="pageEyebrow">Assets</p>
+        <h1>Update/Changes</h1>
+        <p class="pageCopy">Use this page to record condition updates, ownership changes, and status edits for existing assets.</p>
+
+        <section class="pageNotice" id="pageStatus" role="status" aria-live="polite"></section>
+
+        <form class="formShell" id="assetLifecycleForm">
+            <div class="formGrid">
+                <label class="formField">
+                    <span>Asset Tag</span>
+                    <input id="assetTagLookupInput" type="text" value="1692073766" placeholder="Enter asset tag" required>
+                </label>
+                <div class="inlineAction">
+                    <span>Load existing asset</span>
+                    <button class="secondaryButton" id="loadAssetButton" type="button">Load Asset</button>
+                </div>
+                <label class="formField">
+                    <span>Asset Name</span>
+                    <input id="assetNameInput" type="text" required>
+                </label>
+                <label class="formField">
+                    <span>Asset Type</span>
+                    <select id="assetTypeSelect" required></select>
+                </label>
+                <label class="formField">
+                    <span>Status</span>
+                    <select id="assetStatusInput">
+                        <option value="Ready to Deploy">Ready to Deploy</option>
+                        <option value="Deployed">Deployed</option>
+                        <option value="In Repair">In Repair</option>
+                        <option value="Reserved">Reserved</option>
+                        <option value="Decommissioned">Decommissioned</option>
+                    </select>
+                </label>
+                <label class="formField">
+                    <span>Assigned To</span>
+                    <input id="assetAssignedInput" type="text">
+                </label>
+                <label class="formField">
+                    <span>Serial Number</span>
+                    <input id="assetSerialInput" type="text">
+                </label>
+                <label class="formField">
+                    <span>Category</span>
+                    <select id="assetCategoryInput">
+                        <option value="" disabled selected>Select Category</option>
+                    </select>
+                </label>
+                <label class="formField">
+                    <span>Manufacturer</span>
+                    <input id="assetManufacturerInput" type="text">
+                </label>
+                <label class="formField">
+                    <span>Location</span>
+                    <input id="assetLocationInput" type="text">
+                </label>
+                <label class="formField">
+                    <span>Model</span>
+                    <input id="assetModelInput" type="text">
+                </label>
+                <label class="formField">
+                    <span>Purchase Cost</span>
+                    <input id="assetPurchaseCostInput" type="number" min="0" step="0.01">
+                </label>
+                <label class="formField">
+                    <span>Current Value</span>
+                    <input id="assetCurrentValueInput" type="number" min="0" step="0.01">
+                </label>
+            </div>
+
+            <section class="assetDynamicFields" id="assetDynamicFields"></section>
+            <label class="formField">
+                <span>Change Notes</span>
+                <textarea id="assetNotesInput" rows="4" placeholder="Describe the update or condition change"></textarea>
+            </label>
+            <div class="pageActions">
+                <button class="primaryButton" type="submit">Save Changes</button>
+                <a class="secondaryButton" href="assets-all.html">Return to All Assets</a>
+            </div>
+        </form>
+    </main>
+    <script src="script/field-sets-store.js?v=20260429d"></script>
+    <script src="script/assets-store.js?v=20260502b"></script>
+    <script src="script/assets-submenu-pages.js?v=20260429d"></script>
+</body>
+</html>
+
+
+

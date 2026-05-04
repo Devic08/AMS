@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets Submenu Demo</title>
+    <link rel="stylesheet" href="css/sidebar-submenu.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="submenuDemoShell">
+        <div class="navGroup hasSubmenu submenuDemoGroup" data-group="assets">
+            <button class="navItem submenuToggle" type="button" aria-expanded="false" aria-controls="assetsSubmenuDemo">
+                <span class="navIcon" aria-hidden="true"><i class='bx bx-box'></i></span>
+                <span class="navContent">
+                    <strong>Assets</strong>
+                    <small>Inventory records and ownership data</small>
+                </span>
+                <span class="submenuArrow" aria-hidden="true"><i class='bx bx-chevron-down'></i></span>
+            </button>
+            <div class="submenu" id="assetsSubmenuDemo">
+                <button class="submenuItem active" type="button">All Assets</button>
+                <button class="submenuItem" type="button">Reallocation</button>
+                <button class="submenuItem" type="button">Decommission</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/sidebar-submenu.js"></script>
+</body>
+</html>
+

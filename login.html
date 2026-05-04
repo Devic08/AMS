@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AMS Login - Asset Management System</title>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body class="container">
+        <div class="container">
+            <div class="loginHeader">
+                <h1>AMS</h1>
+                <h3>Asset Managemnt System</h3>
+            </div>
+            <div class="loginBody">
+                <form id="loginForm" action="">
+                    <h1>Login</h1>
+
+                    <div class="loginFormCointainer">
+                        <input id="username" placeholder="Username" type="text" required>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="loginFormCointainer">
+                        <input id="password" placeholder="Password" type="password" required>
+                        <i class='bx bxs-lock-alt' ></i>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input id="rememberMe" type="checkbox">Remember Me</label>
+                        <a href="forgot-password.html">Forgot Password</a>
+                        </div>
+                    <p class="loginHelperText">Default AMS Super Admin login: <strong>Admin</strong> / <strong>Admin@123</strong></p>
+                    <div class="loginStatusMessage" id="loginStatusMessage" role="alert" aria-live="polite"></div>
+                    <div class="loginButtonContainer">
+                        <button type="submit">Login</button>
+                    <div class="register-link">
+                         <p>Don't have an account? <a href="register.html">Register</a></p>
+                     </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="script/auth-store.js?v=20260504a"></script>
+        <script>
+            const loginForm = document.getElementById('loginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const rememberMeCheckbox = document.getElementById('rememberMe');
+            const loginStatusMessage = document.getElementById('loginStatusMessage');
+            const rememberedUsernameKey = 'amsRememberedUsername';
+
+            const activeSession = window.AMSAuthStore?.getCurrentUser?.();
+            if (activeSession) {
+                window.location.replace('dashboard.html');
+            }
+
+            const savedUsername = localStorage.getItem(rememberedUsernameKey);
+
+            if (savedUsername) {
+                usernameInput.value = savedUsername;
+                rememberMeCheckbox.checked = true;
+            }
+
+            loginForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value;
+
+                if (rememberMeCheckbox.checked && username) {
+                    localStorage.setItem(rememberedUsernameKey, username);
+                } else {
+                    localStorage.removeItem(rememberedUsernameKey);
+                }
+
+                const result = window.AMSAuthStore?.login?.(username, password);
+                if (!result?.ok) {
+                    loginStatusMessage.textContent = result?.message || 'Unable to login to AMS.';
+                    loginStatusMessage.classList.add('visible', 'error');
+                    return;
+                }
+
+                loginStatusMessage.textContent = `Welcome ${result.user.displayName}. Opening AMS dashboard...`;
+                loginStatusMessage.classList.remove('error');
+                loginStatusMessage.classList.add('visible');
+                window.setTimeout(() => {
+                    window.location.replace('dashboard.html');
+                }, 250);
+            });
+        </script>
+    </body>
+</html>

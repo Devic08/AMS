@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Sets - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/assets-submenu-pages.css">
+    <link rel="stylesheet" href="css/field-sets.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main class="submenuPage fieldSetPage">
+        <section class="formShell fieldSetShell">
+            <div class="fieldSetTopBar">
+                <div>
+                    <p class="pageEyebrow">Settings</p>
+                    <h1>Add Field Set</h1>
+                </div>
+                <a class="fieldSetCloseButton" href="settings-predefined-field.html" aria-label="Close">
+                    <i class='bx bx-x'></i>
+                </a>
+            </div>
+
+            <div class="statusBanner" id="statusBanner" role="status" aria-live="polite"></div>
+
+            <form class="fieldSetForm" id="fieldSetForm">
+                <input type="hidden" id="fieldSetId">
+                <label class="formField">
+                    <span>Field Set Name</span>
+                    <input id="fieldSetName" type="text" placeholder="Enter field set name" required>
+                </label>
+                <label class="formField">
+                    <span>Value Type</span>
+                    <select id="fieldSetValueType" required>
+                        <option value="" selected disabled>Select Value Type</option>
+                        <option value="any">Any</option>
+                        <option value="text">Text</option>
+                        <option value="numerical">Numerical</option>
+                        <option value="hexadecimal">Hexa Decimal</option>
+                        <option value="alpha">Alpha</option>
+                        <option value="url">URL</option>
+                        <option value="boolean">Boolean</option>
+                        <option value="date">Date</option>
+                        <option value="email">Email</option>
+                        <option value="ipv4">IPv4</option>
+                        <option value="ipv6">IPv6</option>
+                    </select>
+                </label>
+                <label class="formField">
+                    <span>Field Name</span>
+                    <select id="fieldSetFieldName" required></select>
+                </label>
+                <label class="formField">
+                    <span>Field Type</span>
+                    <select id="fieldSetFieldType" required></select>
+                </label>
+                <label class="formField">
+                    <span>Add Item</span>
+                    <select id="fieldSetAddItem" required></select>
+                </label>
+                <section class="fieldSetValueSection">
+                    <div class="fieldSetValueSectionHeader">
+                        <span>Added Values</span>
+                        <small>Click `x` to remove a value from this field set.</small>
+                    </div>
+                    <div class="fieldSetValueGrid" id="fieldSetValueGrid"></div>
+                </section>
+                <label class="fieldSetCheckboxRow" for="fieldSetUniqueRequired">
+                    <input id="fieldSetUniqueRequired" type="checkbox">
+                    <span>This value must be unique</span>
+                </label>
+                <div class="fieldSetActions">
+                    <button class="modalSecondaryButton" id="fieldSetResetButton" type="button">Reset</button>
+                    <button class="modalPrimaryButton" type="submit">Save</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="script/field-sets-store.js"></script>
+    <script src="script/field-sets-page.js"></script>
+</body>
+</html>
+
+

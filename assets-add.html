@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Assets - AMS</title>
+    <script src="script/theme-store.js?v=20260501a"></script>
+    <script src="script/ams-database.js?v=20260502a"></script>
+    <link rel="stylesheet" href="css/assets-submenu-pages.css">
+    <link rel="stylesheet" href="css/field-sets.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260501a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="submenuPage" data-page="add-assets">
+        <a class="backLink" href="dashboard.html">Back to Dashboard</a>
+        <p class="pageEyebrow">Assets</p>
+        <h1>Add Assets</h1>
+        <p class="pageCopy">Use this page to register new assets, capture procurement details, and assign initial ownership.</p>
+
+        <section class="pageNotice" id="pageStatus" role="status" aria-live="polite"></section>
+
+        <form class="formShell" id="assetLifecycleForm">
+            <div class="formGrid">
+                <label class="formField">
+                    <span>Asset Name</span>
+                    <input id="assetNameInput" type="text" placeholder="Dell Latitude 5440" required>
+                </label>
+                <label class="formField">
+                    <span>Asset Tag</span>
+                    <input id="assetTagInput" type="text" placeholder="AST-2044" required>
+                </label>
+                <label class="formField">
+                    <span>Serial Number</span>
+                    <input id="assetSerialInput" type="text" placeholder="SN-8821-AZ11" required>
+                </label>
+                <label class="formField">
+                    <span>Asset Type</span>
+                    <select id="assetTypeSelect" required></select>
+                </label>
+                <label class="formField">
+                    <span>Category</span>
+                    <select id="assetCategoryInput" required>
+                        <option value="" disabled selected>Select Category</option>
+                    </select>
+                </label>
+                <label class="formField">
+                    <span>Manufacturer</span>
+                    <input id="assetManufacturerInput" type="text" placeholder="Dell" required>
+                </label>
+                <label class="formField">
+                    <span>Status</span>
+                    <select id="assetStatusInput">
+                        <option value="Ready to Deploy">Ready to Deploy</option>
+                        <option value="Deployed">Deployed</option>
+                        <option value="In Repair">In Repair</option>
+                        <option value="Reserved">Reserved</option>
+                    </select>
+                </label>
+                <label class="formField">
+                    <span>Assigned To</span>
+                    <input id="assetAssignedInput" type="text" placeholder="Open Stock">
+                </label>
+                <label class="formField">
+                    <span>Location</span>
+                    <input id="assetLocationInput" type="text" placeholder="Main Warehouse" required>
+                </label>
+                <label class="formField">
+                    <span>Model</span>
+                    <input id="assetModelInput" type="text" placeholder="Latitude 5440">
+                </label>
+                <label class="formField">
+                    <span>Purchase Cost</span>
+                    <input id="assetPurchaseCostInput" type="number" min="0" step="0.01" placeholder="680.00">
+                </label>
+                <label class="formField">
+                    <span>Current Value</span>
+                    <input id="assetCurrentValueInput" type="number" min="0" step="0.01" placeholder="620.00">
+                </label>
+            </div>
+
+            <section class="assetDynamicFields" id="assetDynamicFields"></section>
+            <label class="formField">
+                <span>Notes</span>
+                <textarea id="assetNotesInput" rows="4" placeholder="Procurement note, warranty reference, or assignment context"></textarea>
+            </label>
+            <div class="pageActions">
+                <button class="primaryButton" type="submit">Save Asset</button>
+                <a class="secondaryButton" href="assets-all.html">View All Assets</a>
+            </div>
+        </form>
+    </main>
+    <script src="script/field-sets-store.js?v=20260429d"></script>
+    <script src="script/assets-store.js?v=20260502b"></script>
+    <script src="script/assets-submenu-pages.js?v=20260429d"></script>
+</body>
+</html>
+
+
+
